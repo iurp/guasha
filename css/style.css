@@ -13,18 +13,18 @@
    ============================================================================= */
 
 :root {
-  /* Color Palette */
-  --color-bg:           #0f0d0c;
-  --color-surface:      #1a1614;
-  --color-surface-2:    #241e1b;
+  /* Color Palette — Light theme (fixed) */
+  --color-bg:           #f8f5f0;
+  --color-surface:      #f0ebe3;
+  --color-surface-2:    #e8e0d4;
   --color-copper:       #b87333;
   --color-copper-light: #d4956a;
   --color-wood:         #6b4f2a;
-  --color-text:         #f5f0eb;
-  --color-text-muted:   #9c8f85;
-  --color-text-faint:   #5a504a;
-  --color-border:       #2a2320;
-  --color-border-light: #3a302c;
+  --color-text:         #1a1614;
+  --color-text-muted:   #5a4f47;
+  --color-text-faint:   #9c8f85;
+  --color-border:       #d4c8bc;
+  --color-border-light: #e0d6cc;
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -62,24 +62,6 @@
   --radius-lg:      8px;
 
   /* Shadows */
-  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.5);
-  --shadow-lg:  0 12px 40px rgba(0, 0, 0, 0.6);
-  --shadow-copper: 0 0 24px rgba(184, 115, 51, 0.15);
-}
-
-/* ============================================================
-   Light Theme Override — applied via html.light-theme class
-   ============================================================ */
-html.light-theme {
-  --color-bg:           #f8f5f0;
-  --color-surface:      #f0ebe3;
-  --color-surface-2:    #e8e0d4;
-  --color-text:         #1a1614;
-  --color-text-muted:   #5a4f47;
-  --color-text-faint:   #9c8f85;
-  --color-border:       #d4c8bc;
-  --color-border-light: #e0d6cc;
   --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-lg:  0 12px 40px rgba(0, 0, 0, 0.16);
@@ -429,7 +411,7 @@ hr {
 }
 
 .btn:hover::after {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 /* Primary Button — Copper fill */
@@ -555,7 +537,7 @@ hr {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(15, 13, 12, 0.5) 0%,
+    rgba(26, 22, 20, 0.4) 0%,
     transparent 50%
   );
   opacity: 0;
@@ -693,7 +675,7 @@ hr {
 }
 
 .nav--scrolled {
-  background-color: rgba(15, 13, 12, 0.95);
+  background-color: rgba(248, 245, 240, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom-color: var(--color-border);
@@ -848,7 +830,7 @@ hr {
 }
 
 .nav-hamburger:hover {
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
 .nav-hamburger__line {
@@ -1161,9 +1143,9 @@ hr {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(15, 13, 12, 0.85) 0%,
-    rgba(15, 13, 12, 0.4) 50%,
-    rgba(15, 13, 12, 0.6) 100%
+    rgba(26, 22, 20, 0.75) 0%,
+    rgba(26, 22, 20, 0.3) 50%,
+    rgba(26, 22, 20, 0.5) 100%
   );
 }
 
@@ -1591,36 +1573,7 @@ body.nav-open {
   }
 }
 
-/* ============================================================
-   Theme Toggle Button
-   ============================================================ */
-.nav-theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: none;
-  border: 1px solid var(--color-border-light);
-  border-radius: 50%;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  transition: color var(--transition-fast), border-color var(--transition-fast);
-  flex-shrink: 0;
-  padding: 0;
-}
-.nav-theme-toggle:hover {
-  color: var(--color-copper);
-  border-color: var(--color-copper);
-}
-.theme-icon--moon { display: none; }
-html.light-theme .theme-icon--sun  { display: none; }
-html.light-theme .theme-icon--moon { display: block; }
-
-/* Light theme nav overrides for hardcoded rgba values */
-html.light-theme .nav {
+/* Nav background — light theme */
+.nav {
   background: rgba(248, 245, 240, 0.92);
-}
-html.light-theme .nav--scrolled {
-  background-color: rgba(248, 245, 240, 0.97);
 }

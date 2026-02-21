@@ -19,7 +19,6 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <script>(function(){if(localStorage.getItem('meridian_theme')==='light'){document.documentElement.classList.add('light-theme');}}());</script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
@@ -30,17 +29,17 @@
        Design tokens
     ───────────────────────────────────────── */
     :root {
-      --color-bg:        #0d0c0b;
-      --color-surface:   #141210;
-      --color-surface-2: #1c1916;
-      --color-border:    #2a2420;
+      --color-bg:        #f8f5f0;
+      --color-surface:   #f0ebe3;
+      --color-surface-2: #e8e0d4;
+      --color-border:    #d4c8bc;
       --color-copper:    #b87333;
       --color-copper-lt: #d4956a;
       --color-copper-dk: #7a4a20;
-      --color-text:      #e8e0d4;
-      --color-text-muted:#9a8f85;
-      --color-text-faint:#5a504a;
-      --color-white:     #f5f0ea;
+      --color-text:      #1a1614;
+      --color-text-muted:#5a4f47;
+      --color-text-faint:#9c8f85;
+      --color-white:     #1a1614;
 
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans:  'Inter', system-ui, sans-serif;
@@ -141,7 +140,7 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(13, 12, 11, 0.88);
+      background: rgba(248, 245, 240, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--color-border);
@@ -344,8 +343,8 @@
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--color-white);
-      background: rgba(13,12,11,0.65);
+      color: #f5f0ea;
+      background: rgba(26,22,20,0.65);
       padding: 6px 12px;
       border-radius: var(--radius-sm);
       backdrop-filter: blur(6px);
@@ -963,29 +962,59 @@
        NAV
   ══════════════════════════════ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <!-- Logo -->
-      <a href="/" class="nav__logo" aria-label="MERIDIAN — Home">MERIDIAN</a>
+    <div class="container">
+      <div class="nav__inner">
 
-      <!-- Centre links -->
-      <ul class="nav__links">
-        <li><a href="products.html">Shop</a></li>
-        <li><a href="about.html">Our Story</a></li>
-        <li><a href="journal.html">Journal</a></li>
-      </ul>
+        <a href="index.html" class="nav-logo" aria-label="MERIDIAN — Home">
+          <div class="nav-logo__mark">
+            <div class="nav-logo__mark-inner"></div>
+          </div>
+          <span class="nav-logo__text">Meridian</span>
+        </a>
 
-      <!-- CTA -->
-      <a href="products.html" class="btn btn-primary nav__cta">Start Your Ritual</a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-links__item active">Home</a></li>
+          <li><a href="products.html" class="nav-links__item">Collection</a></li>
+          <li><a href="about.html" class="nav-links__item">About</a></li>
+          <li><a href="cart.html" class="nav-links__item">Cart</a></li>
+        </ul>
 
-      <!-- Mobile hamburger -->
-      <button class="nav-theme-toggle" id="themeToggle" aria-label="Switch to light theme"><svg class="theme-icon theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="theme-icon theme-icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <div class="nav-cta">
+          <a href="cart.html" class="nav-cart" aria-label="Shopping cart">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="nav-cart__count" style="display:none;"></span>
+          </a>
+        </div>
+
+        <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false">
+          <span class="nav-hamburger__line"></span>
+          <span class="nav-hamburger__line"></span>
+          <span class="nav-hamburger__line"></span>
+        </button>
+
+      </div>
     </div>
   </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" role="dialog" aria-label="Navigation menu">
+    <nav class="nav-drawer__links">
+      <a href="index.html" class="nav-drawer__link">Home</a>
+      <a href="products.html" class="nav-drawer__link">Collection</a>
+      <a href="about.html" class="nav-drawer__link">About</a>
+      <a href="cart.html" class="nav-drawer__link">Cart</a>
+    </nav>
+    <div class="nav-drawer__footer">
+      <p>Hand-crafted tools. Ancient practice.</p>
+    </div>
+  </div>
+  <div class="nav-backdrop"></div>
 
 
   <!-- ═══════════════════════════

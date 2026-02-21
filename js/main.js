@@ -428,28 +428,6 @@ function initLazyImages() {
    Bootstrap — run all modules
    ============================================================================= */
 
-/* ---- Theme Toggle ---- */
-function initThemeToggle() {
-  var STORAGE_KEY = 'meridian_theme';
-  var html = document.documentElement;
-  var btn = document.querySelector('#themeToggle');
-  if (!btn) return;
-  if (localStorage.getItem(STORAGE_KEY) === 'light') {
-    html.classList.add('light-theme');
-  }
-  function updateLabel() {
-    btn.setAttribute('aria-label',
-      html.classList.contains('light-theme') ? 'Switch to dark theme' : 'Switch to light theme');
-  }
-  updateLabel();
-  btn.addEventListener('click', function () {
-    var isLight = html.classList.toggle('light-theme');
-    localStorage.setItem(STORAGE_KEY, isLight ? 'light' : 'dark');
-    updateLabel();
-  });
-}
-
-
 function init() {
   initNavScroll();
   initActiveNavLinks();
@@ -461,7 +439,6 @@ function init() {
   initProductCards();
   initNewsletter();
   initLazyImages();
-  initThemeToggle();
 }
 
 if (document.readyState === 'loading') {
