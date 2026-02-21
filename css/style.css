@@ -68,6 +68,24 @@
   --shadow-copper: 0 0 24px rgba(184, 115, 51, 0.15);
 }
 
+/* ============================================================
+   Light Theme Override — applied via html.light-theme class
+   ============================================================ */
+html.light-theme {
+  --color-bg:           #f8f5f0;
+  --color-surface:      #f0ebe3;
+  --color-surface-2:    #e8e0d4;
+  --color-text:         #1a1614;
+  --color-text-muted:   #5a4f47;
+  --color-text-faint:   #9c8f85;
+  --color-border:       #d4c8bc;
+  --color-border-light: #e0d6cc;
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg:  0 12px 40px rgba(0, 0, 0, 0.16);
+  --shadow-copper: 0 0 24px rgba(184, 115, 51, 0.12);
+}
+
 
 /* =============================================================================
    CSS Reset + Base Styles
@@ -1571,4 +1589,38 @@ body.nav-open {
     background: white;
     color: black;
   }
+}
+
+/* ============================================================
+   Theme Toggle Button
+   ============================================================ */
+.nav-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--color-border-light);
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+  padding: 0;
+}
+.nav-theme-toggle:hover {
+  color: var(--color-copper);
+  border-color: var(--color-copper);
+}
+.theme-icon--moon { display: none; }
+html.light-theme .theme-icon--sun  { display: none; }
+html.light-theme .theme-icon--moon { display: block; }
+
+/* Light theme nav overrides for hardcoded rgba values */
+html.light-theme .nav {
+  background: rgba(248, 245, 240, 0.92);
+}
+html.light-theme .nav--scrolled {
+  background-color: rgba(248, 245, 240, 0.97);
 }
