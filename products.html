@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Collection — MERIDIAN</title>
+  <meta name="description" content="Six hand-crafted copper and wood gua sha tools. Discover the full MERIDIAN collection." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ---- Products page supplemental styles ---- */
+    .products-page-header {
+      padding-top: 120px;
+      padding-bottom: 64px;
+      background-color: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .products-page-header h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .products-page-header .sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--color-copper);
+      letter-spacing: 0.04em;
+    }
+
+    .products-section {
+      padding: 72px 0 96px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background-color: var(--color-border);
+    }
+
+    /* Override card style for catalog grid */
+    .catalog-card {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-surface);
+      overflow: hidden;
+      transition: background-color var(--transition-base);
+    }
+
+    .catalog-card:hover {
+      background-color: var(--color-surface-2);
+    }
+
+    .catalog-card__image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background-color: var(--color-surface-2);
+      position: relative;
+    }
+
+    .catalog-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+
+    .catalog-card:hover .catalog-card__image img {
+      transform: scale(1.04);
+    }
+
+    /* Copper placeholder */
+    .copper-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1208 0%, #2a1c0c 35%, #1f1409 65%, #0f0b05 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .copper-placeholder__ring {
+      width: 72px;
+      height: 72px;
+      border: 1px solid rgba(184,115,51,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .copper-placeholder__ring-inner {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(184,115,51,0.2);
+      border-radius: 50%;
+    }
+
+    .copper-placeholder__label {
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: rgba(184,115,51,0.45);
+      text-transform: uppercase;
+    }
+
+    .catalog-card__body {
+      padding: 28px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .catalog-card__material {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+      border: 1px solid rgba(184,115,51,0.3);
+      padding: 4px 11px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .catalog-card__name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .catalog-card__tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 28px;
+      flex: 1;
+    }
+
+    .catalog-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .catalog-card__price {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-text);
+    }
+
+    .catalog-card__price sup {
+      font-size: 0.85rem;
+      vertical-align: top;
+      margin-top: 5px;
+      display: inline-block;
+      color: var(--color-text-muted);
+    }
+
+    .btn-view-details {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border-light);
+      padding: 10px 22px;
+      border-radius: 2px;
+      transition: all var(--transition-base);
+      text-decoration: none;
+    }
+
+    .btn-view-details:hover {
+      color: var(--color-bg);
+      background-color: var(--color-copper);
+      border-color: var(--color-copper);
+    }
+
+    .btn-view-details svg {
+      width: 12px;
+      height: 12px;
+      transition: transform var(--transition-base);
+    }
+
+    .btn-view-details:hover svg {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 768px) {
+      .products-page-header {
+        padding-top: 96px;
+        padding-bottom: 40px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .catalog-card__body {
+        padding: 20px 20px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Navigation ========== -->
+  <nav class="nav nav--scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav-logo" aria-label="MERIDIAN — Home">
+          <div class="nav-logo__mark" aria-hidden="true">
+            <div class="nav-logo__mark-inner"></div>
+          </div>
+          <span class="nav-logo__text">Meridian</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="index.html" class="nav-links__item">Home</a></li>
+          <li><a href="products.html" class="nav-links__item active">Collection</a></li>
+          <li><a href="index.html#ritual" class="nav-links__item">Ritual</a></li>
+          <li><a href="index.html#about" class="nav-links__item">About</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a href="#" class="nav-cart" aria-label="Shopping cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="nav-cart__count" style="display:none">0</span>
+          </a>
+        </div>
+
+        <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span class="nav-hamburger__line"></span>
+          <span class="nav-hamburger__line"></span>
+          <span class="nav-hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" role="dialog" aria-label="Navigation menu">
+    <nav class="nav-drawer__links">
+      <a href="index.html" class="nav-drawer__link">Home</a>
+      <a href="products.html" class="nav-drawer__link">Collection</a>
+      <a href="index.html#ritual" class="nav-drawer__link">Ritual</a>
+      <a href="index.html#about" class="nav-drawer__link">About</a>
+    </nav>
+    <div class="nav-drawer__footer">
+      <p>Handcrafted in small batches.</p>
+    </div>
+  </div>
+  <div class="nav-backdrop"></div>
+
+  <!-- ========== Page Header ========== -->
+  <header class="products-page-header">
+    <div class="container">
+      <div class="divider"></div>
+      <h1>The Collection</h1>
+      <p class="sub">Six tools. One practice.</p>
+    </div>
+  </header>
+
+  <!-- ========== Products Grid ========== -->
+  <main>
+    <section class="products-section">
+      <div class="container">
+        <div class="products-grid reveal-group">
+
+          <!-- 01 Frog Face Lift -->
+          <article class="catalog-card">
+            <div class="catalog-card__image">
+              <img
+                src="images/products/image_1.png"
+                alt="Frog Face Lift Massager — H65 Copper and Black Walnut Wood"
+                loading="eager"
+              />
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__material">H65 Copper &amp; Black Walnut Wood</span>
+              <h2 class="catalog-card__name">Frog Face Lift Massager</h2>
+              <p class="catalog-card__tagline">Sculpt. Lift. Repeat.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price"><sup>$</sup>68</div>
+                <a href="product/frog-face-lift.html" class="btn-view-details">
+                  View Details
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M1 6h10M7 2l4 4-4 4"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 Lotus Pod Eye -->
+          <article class="catalog-card">
+            <div class="catalog-card__image">
+              <div class="copper-placeholder" aria-hidden="true">
+                <div class="copper-placeholder__ring">
+                  <div class="copper-placeholder__ring-inner"></div>
+                </div>
+                <span class="copper-placeholder__label">H65 Copper</span>
+              </div>
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__material">H65 Copper &amp; Rosewood</span>
+              <h2 class="catalog-card__name">Lotus Pod Eye Massager</h2>
+              <p class="catalog-card__tagline">Ancient remedy. Modern ritual.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price"><sup>$</sup>54</div>
+                <a href="product/lotus-pod-eye.html" class="btn-view-details">
+                  View Details
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M1 6h10M7 2l4 4-4 4"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 Bianshi Ring -->
+          <article class="catalog-card">
+            <div class="catalog-card__image">
+              <div class="copper-placeholder" aria-hidden="true">
+                <div class="copper-placeholder__ring">
+                  <div class="copper-placeholder__ring-inner"></div>
+                </div>
+                <span class="copper-placeholder__label">Bianshi Stone</span>
+              </div>
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__material">Bianshi Stone — Sishui, Shandong</span>
+              <h2 class="catalog-card__name">Bianshi Stone Ring</h2>
+              <p class="catalog-card__tagline">Wear your wellness.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price"><sup>$</sup>42</div>
+                <a href="product/bianshi-ring.html" class="btn-view-details">
+                  View Details
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M1 6h10M7 2l4 4-4 4"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 Face & Neck Sculpting -->
+          <article class="catalog-card">
+            <div class="catalog-card__image">
+              <div class="copper-placeholder" aria-hidden="true">
+                <div class="copper-placeholder__ring">
+                  <div class="copper-placeholder__ring-inner"></div>
+                </div>
+                <span class="copper-placeholder__label">H65 Copper</span>
+              </div>
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__material">H65 Copper &amp; Golden Silk Ebony</span>
+              <h2 class="catalog-card__name">Dual Face &amp; Neck Sculpting Tool</h2>
+              <p class="catalog-card__tagline">Precision-engineered for your anatomy.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price"><sup>$</sup>78</div>
+                <a href="product/face-neck-sculpting.html" class="btn-view-details">
+                  View Details
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M1 6h10M7 2l4 4-4 4"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 Body Meridian Roller -->
+          <article class="catalog-card">
+            <div class="catalog-card__image">
+              <div class="copper-placeholder" aria-hidden="true">
+                <div class="copper-placeholder__ring">
+                  <div class="copper-placeholder__ring-inner"></div>
+                </div>
+                <span class="copper-placeholder__label">H65 Copper</span>
+              </div>
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__material">H65 Copper &amp; Beech Wood</span>
+              <h2 class="catalog-card__name">Full Body Meridian Roller</h2>
+              <p class="catalog-card__tagline">From neck to sole. One tool.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price"><sup>$</sup>62</div>
+                <a href="product/body-meridian-roller.html" class="btn-view-details">
+                  View Details
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M1 6h10M7 2l4 4-4 4"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06 Tiger Talisman -->
+          <article class="catalog-card">
+            <div class="catalog-card__image">
+              <div class="copper-placeholder" aria-hidden="true">
+                <div class="copper-placeholder__ring">
+                  <div class="copper-placeholder__ring-inner"></div>
+                </div>
+                <span class="copper-placeholder__label">Pure Copper</span>
+              </div>
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__material">H65 Copper</span>
+              <h2 class="catalog-card__name">Tiger Talisman Copper Gua Sha</h2>
+              <p class="catalog-card__tagline">Pure copper. Pure intention.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price"><sup>$</sup>58</div>
+                <a href="product/tiger-talisman.html" class="btn-view-details">
+                  View Details
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M1 6h10M7 2l4 4-4 4"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /products-grid -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="footer__brand-logo">Meridian</span>
+          <p class="footer__brand-desc">
+            Hand-crafted copper and wood tools for the modern meridian practice.
+            Designed with precision. Finished by hand.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Collection</h3>
+          <ul class="footer__links">
+            <li><a href="product/frog-face-lift.html" class="footer__link">Frog Face Lift</a></li>
+            <li><a href="product/lotus-pod-eye.html" class="footer__link">Lotus Pod Eye</a></li>
+            <li><a href="product/bianshi-ring.html" class="footer__link">Bianshi Ring</a></li>
+            <li><a href="product/face-neck-sculpting.html" class="footer__link">Face &amp; Neck Tool</a></li>
+            <li><a href="product/body-meridian-roller.html" class="footer__link">Meridian Roller</a></li>
+            <li><a href="product/tiger-talisman.html" class="footer__link">Tiger Talisman</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Information</h3>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">About MERIDIAN</a></li>
+            <li><a href="#" class="footer__link">The Practice</a></li>
+            <li><a href="#" class="footer__link">Materials</a></li>
+            <li><a href="#" class="footer__link">Shipping &amp; Returns</a></li>
+            <li><a href="#" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Stay Connected</h3>
+          <div class="footer__newsletter">
+            <p>Ritual notes, new tools, and slow beauty — delivered quietly.</p>
+            <form class="footer__newsletter-form" onsubmit="return false;">
+              <input type="email" class="footer__newsletter-input" placeholder="your@email.com" aria-label="Email address" />
+              <button type="submit" class="footer__newsletter-btn">Join</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2025 MERIDIAN. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#" class="footer__legal-link">Privacy</a>
+          <a href="#" class="footer__legal-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

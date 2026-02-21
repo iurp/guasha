@@ -1,0 +1,122 @@
+[
+  {
+    "id": "frog-face-lift",
+    "slug": "frog-face-lift",
+    "name": "Frog Face Lift Massager",
+    "name_cn": "Frog脸部提升按摩器",
+    "tagline": "Sculpt. Lift. Repeat.",
+    "material": "H65 Copper & Black Walnut Wood",
+    "size": "35 × 100mm",
+    "usage_areas": ["Eye contour", "Jawline", "Nasal wings", "Forehead", "Ears"],
+    "price": 68,
+    "description": "A compact facial fascia lift massager shaped like a frog, precision-crafted from H65 copper and black walnut wood. Hand-sanded to a silky finish, its curves are designed to hug every contour of the face — from the eye socket to the jawline. Small enough to carry anywhere, powerful enough to transform your daily ritual.",
+    "highlights": [
+      "Anatomically curved for full facial coverage",
+      "H65 copper for natural microcirculation support",
+      "Hand-finished black walnut — no lacquer, no chemicals",
+      "Compact enough for travel"
+    ],
+    "images": ["image_1.png", "image_2.png", "image_3.png", "image_4.png", "image_5.jpg", "image_6.jpg", "image_7.jpg", "image_8.jpg"],
+    "featured": true
+  },
+  {
+    "id": "lotus-pod-eye",
+    "slug": "lotus-pod-eye",
+    "name": "Lotus Pod Eye Massager",
+    "name_cn": "Lotus Pod眼部拨筋",
+    "tagline": "Ancient remedy. Modern ritual.",
+    "material": "H65 Copper & Rosewood",
+    "size": "60 × 20mm",
+    "usage_areas": ["Eye contour", "Under-eye", "Orbital bone"],
+    "price": 54,
+    "description": "Inspired by the lotus seed pod, this delicate eye massager is crafted from copper and rosewood with unique grain patterns — no two pieces are identical. Worn as jewelry or used as a tool. Chemical-free, lacquer-free. Comes with a carry cord.",
+    "highlights": [
+      "Natural rosewood grain — every piece unique",
+      "No lacquer or chemical coating",
+      "Doubles as wearable jewelry with included cord",
+      "Compact for on-the-go use"
+    ],
+    "images": [],
+    "featured": true
+  },
+  {
+    "id": "bianshi-ring",
+    "slug": "bianshi-ring",
+    "name": "Bianshi Stone Ring",
+    "name_cn": "砭石戒指/挂链",
+    "tagline": "Wear your wellness.",
+    "material": "Bianshi Stone (泗水, Shandong)",
+    "size": "30 × 50 × 20mm",
+    "usage_areas": ["Full body acupoints", "Daily acupressure"],
+    "price": 42,
+    "description": "The oldest tool in Traditional Chinese Medicine. Bianshi stone, sourced from Sishui, Shandong, contains trace minerals beneficial to the body. Slip it on your finger to activate acupoints anytime, anywhere — or wear it as a pendant. Natural stone texture means every piece is one of a kind.",
+    "highlights": [
+      "Genuine Bianshi stone from Sishui, Shandong",
+      "Natural mineral content — no two pieces alike",
+      "Wear as ring or necklace pendant",
+      "Acupressure on the go"
+    ],
+    "images": [],
+    "featured": false
+  },
+  {
+    "id": "face-neck-sculpting",
+    "slug": "face-neck-sculpting",
+    "name": "Dual Face & Neck Sculpting Tool",
+    "name_cn": "面部&颈部筋膜按摩器",
+    "tagline": "Precision-engineered for your anatomy.",
+    "material": "H65 Copper & Golden Silk Ebony",
+    "size": "65 × 103mm",
+    "usage_areas": ["Nasolabial folds", "Eye corners", "Sternocleidomastoid", "Platysma muscle"],
+    "price": 78,
+    "description": "Two faces, two functions. The concave side follows the natural slope of the nasolabial groove — one edge anchoring at the nasal base, the other gliding along the jawline. The convex side targets key muscle origins and acupoints: Yingxiang (LI20), Quanliao (SI18) — lifting from the cheekbone toward the temple. Designed with the precision of a practitioner.",
+    "highlights": [
+      "Dual-surface design for targeted fascia work",
+      "Concave side engineered for nasolabial fold relief",
+      "Convex side for acupoint activation and lifting",
+      "Works on neck platysma and sternocleidomastoid"
+    ],
+    "images": [],
+    "featured": true
+  },
+  {
+    "id": "body-meridian-roller",
+    "slug": "body-meridian-roller",
+    "name": "Full Body Meridian Roller",
+    "name_cn": "全身按摩经络推",
+    "tagline": "From neck to sole. One tool.",
+    "material": "H65 Copper & Beech Wood",
+    "size": "Standard",
+    "usage_areas": ["Neck", "Upper arms", "Breast meridians", "Ribcage", "Glutes", "Hips", "Soles"],
+    "price": 62,
+    "description": "A full-body companion for meridian work. The copper head and beech wood handle are balanced for prolonged use across large muscle groups — from the neck down through the IT band, hips, and soles. Follow the meridian channels or simply address wherever tension lives.",
+    "highlights": [
+      "Balanced weight for extended use",
+      "Copper head for enhanced gua sha effect",
+      "Beech wood handle — naturally antibacterial",
+      "Full-body meridian coverage"
+    ],
+    "images": [],
+    "featured": false
+  },
+  {
+    "id": "tiger-talisman",
+    "slug": "tiger-talisman",
+    "name": "Tiger Talisman Copper Gua Sha",
+    "name_cn": "虎符铜砭",
+    "tagline": "Pure copper. Pure intention.",
+    "material": "H65 Copper",
+    "size": "Standard",
+    "usage_areas": ["Full body"],
+    "price": 58,
+    "description": "Named after the ancient tiger-shaped military talisman of China, this pure H65 copper gua sha tool carries the weight of history in every stroke. No wood. No stone. Just copper — with its natural warmth, conductivity, and antimicrobial properties. The most direct tool in the collection.",
+    "highlights": [
+      "Pure H65 copper — no composite materials",
+      "Natural antimicrobial properties",
+      "Warming effect on contact",
+      "Inspired by the ancient tiger talisman"
+    ],
+    "images": [],
+    "featured": false
+  }
+]

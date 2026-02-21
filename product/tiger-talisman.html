@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiger Talisman Copper Gua Sha — MERIDIAN</title>
+  <meta name="description" content="Pure H65 Copper gua sha. Inspired by the ancient tiger-shaped military talisman of China. $58." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    body { padding-top: 72px; }
+    .nav { background-color: rgba(15,13,12,0.97); border-bottom-color: var(--color-border); }
+    .product-hero { padding: 56px 0 72px; }
+    .product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .gallery-placeholder { aspect-ratio: 1 / 1; border: 1px solid var(--color-border); background: radial-gradient(ellipse at 30% 30%, #2c1a08 0%, #180e04 45%, #0a0604 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+    .gallery-placeholder__ring { width: 96px; height: 96px; border: 1px solid rgba(184,115,51,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .gallery-placeholder__ring-inner { width: 52px; height: 52px; border: 1px solid rgba(184,115,51,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .gallery-placeholder__dot { width: 16px; height: 16px; background: rgba(184,115,51,0.4); border-radius: 50%; }
+    .gallery-placeholder__label { font-family: var(--font-serif); font-size: 0.8rem; letter-spacing: 0.16em; color: rgba(184,115,51,0.5); text-transform: uppercase; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 22px; }
+    .breadcrumb a { color: var(--color-text-faint); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--color-copper); }
+    .breadcrumb-sep { color: var(--color-border-light); }
+    .product-material-tag { display: inline-block; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-copper); border: 1px solid rgba(184,115,51,0.35); padding: 5px 12px; border-radius: 2px; margin-bottom: 18px; }
+    .product-name { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--color-text); line-height: 1.15; margin-bottom: 10px; }
+    .product-tagline { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--color-text-muted); margin-bottom: 26px; }
+    .product-price { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; color: var(--color-text); margin-bottom: 30px; }
+    .product-price sup { font-size: 1rem; vertical-align: top; margin-top: 8px; display: inline-block; color: var(--color-text-muted); }
+    .product-divider { height: 1px; background: var(--color-border); margin: 24px 0; }
+    .usage-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: 10px; }
+    .usage-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 30px; }
+    .usage-tag { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); background: var(--color-surface-2); border: 1px solid var(--color-border); padding: 5px 13px; border-radius: 2px; }
+    .btn-add-cart { display: block; width: 100%; padding: 18px; background: var(--color-copper); color: var(--color-bg); font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; border: none; cursor: pointer; border-radius: 2px; transition: background 0.25s; margin-bottom: 12px; }
+    .btn-add-cart:hover { background: var(--color-copper-light); }
+    .btn-wishlist { display: block; width: 100%; text-align: center; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-faint); padding: 10px; background: none; border: none; cursor: pointer; transition: color 0.2s; }
+    .btn-wishlist:hover { color: var(--color-copper); }
+    .desc-section { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 72px 0; }
+    .desc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .desc-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 18px; }
+    .desc-text { font-size: 1rem; line-height: 1.95; color: var(--color-text-muted); }
+    .highlights-list { display: flex; flex-direction: column; gap: 18px; }
+    .highlight-item { display: flex; align-items: flex-start; gap: 16px; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.65; }
+    .highlight-dot { flex-shrink: 0; width: 20px; height: 20px; border: 1px solid var(--color-copper); border-radius: 50%; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+    .highlight-dot::after { content: ''; width: 6px; height: 6px; background: var(--color-copper); border-radius: 50%; }
+    .how-section { padding: 80px 0; }
+    .section-eyebrow { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-copper); margin-bottom: 14px; display: block; }
+    .section-heading { font-family: var(--font-serif); font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 300; color: var(--color-text); margin-bottom: 52px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .step { border-top: 1px solid rgba(184,115,51,0.3); padding-top: 28px; }
+    .step-num { font-family: var(--font-serif); font-size: 3rem; color: rgba(184,115,51,0.2); line-height: 1; margin-bottom: 18px; }
+    .step-title { font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-text); margin-bottom: 10px; }
+    .step-text { font-size: 0.88rem; color: var(--color-text-faint); line-height: 1.85; }
+    .also-section { background-color: var(--color-surface); border-top: 1px solid var(--color-border); padding: 72px 0 96px; }
+    .also-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
+    .also-card { background: var(--color-bg); border: 1px solid var(--color-border); overflow: hidden; transition: border-color 0.3s; }
+    .also-card:hover { border-color: rgba(184,115,51,0.4); }
+    .also-card__img { aspect-ratio: 3/2; background: linear-gradient(135deg, #1a1208 0%, #2a1c0c 50%, #0f0b05 100%); display: flex; align-items: center; justify-content: center; }
+    .also-ring { width: 40px; height: 40px; border: 1px solid rgba(184,115,51,0.3); border-radius: 50%; }
+    .also-card__body { padding: 20px 22px 24px; }
+    .also-card__name { font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-text); margin-bottom: 6px; }
+    .also-card__price { font-size: 0.82rem; color: var(--color-text-faint); margin-bottom: 14px; }
+    .also-card__link { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-copper); border-bottom: 1px solid rgba(184,115,51,0.3); padding-bottom: 2px; }
+    .also-card__link:hover { border-color: var(--color-copper); }
+    @media (max-width: 900px) {
+      .product-layout, .desc-grid { grid-template-columns: 1fr; gap: 40px; }
+      .steps-grid, .also-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="container"><div class="nav__inner">
+      <a href="../index.html" class="nav-logo"><div class="nav-logo__mark"><div class="nav-logo__mark-inner"></div></div><span class="nav-logo__text">Meridian</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-links__item">Home</a></li>
+        <li><a href="../products.html" class="nav-links__item active">Collection</a></li>
+        <li><a href="../index.html#ritual" class="nav-links__item">Ritual</a></li>
+        <li><a href="../index.html#about" class="nav-links__item">About</a></li>
+      </ul>
+      <div class="nav-cta"><a href="#" class="nav-cart" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="nav-cart__count" style="display:none">0</span></a></div>
+      <button class="nav-hamburger" aria-label="Open menu"><span class="nav-hamburger__line"></span><span class="nav-hamburger__line"></span><span class="nav-hamburger__line"></span></button>
+    </div></div>
+  </nav>
+  <div class="nav-drawer"><nav class="nav-drawer__links"><a href="../index.html" class="nav-drawer__link">Home</a><a href="../products.html" class="nav-drawer__link">Collection</a><a href="../index.html#ritual" class="nav-drawer__link">Ritual</a><a href="../index.html#about" class="nav-drawer__link">About</a></nav><div class="nav-drawer__footer"><p>Handcrafted in small batches.</p></div></div>
+  <div class="nav-backdrop"></div>
+
+  <main>
+    <section class="product-hero">
+      <div class="container">
+        <div class="product-layout">
+          <div class="gallery-placeholder" role="img" aria-label="Tiger Talisman Copper Gua Sha — image coming soon">
+            <div class="gallery-placeholder__ring">
+              <div class="gallery-placeholder__ring-inner">
+                <div class="gallery-placeholder__dot"></div>
+              </div>
+            </div>
+            <span class="gallery-placeholder__label">Pure H65 Copper</span>
+          </div>
+          <div class="product-info">
+            <nav class="breadcrumb"><a href="../products.html">The Collection</a><span class="breadcrumb-sep">/</span><span>Tiger Talisman Copper Gua Sha</span></nav>
+            <span class="product-material-tag">H65 Copper</span>
+            <h1 class="product-name">Tiger Talisman Copper Gua Sha</h1>
+            <p class="product-tagline">Pure copper. Pure intention.</p>
+            <div class="product-price"><sup>$</sup>58</div>
+            <div class="product-divider"></div>
+            <p class="usage-label">Target areas</p>
+            <div class="usage-tags">
+              <span class="usage-tag">Full Body</span>
+            </div>
+            <button class="btn-add-cart" data-product-id="tiger-talisman" data-product-name="Tiger Talisman Copper Gua Sha" data-product-price="58">Add to Cart</button>
+            <button class="btn-wishlist" data-wishlist-id="tiger-talisman">Add to Wishlist</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="desc-section">
+      <div class="container">
+        <div class="desc-grid reveal-group">
+          <div>
+            <p class="desc-label">About this tool</p>
+            <p class="desc-text">
+              Named after the ancient tiger-shaped military talisman of China, this pure H65 copper
+              gua sha tool carries the weight of history in every stroke. No wood. No stone. Just copper
+              — with its natural warmth, conductivity, and antimicrobial properties. The most direct
+              tool in the collection.
+            </p>
+            <br />
+            <p class="desc-text" style="color:var(--color-text-faint); font-size:0.85rem;">
+              Material: H65 Copper (pure) &nbsp;&middot;&nbsp; Standard size
+            </p>
+          </div>
+          <div>
+            <p class="desc-label">Why it works</p>
+            <ul class="highlights-list">
+              <li class="highlight-item"><span class="highlight-dot"></span>Pure H65 copper — no composite materials</li>
+              <li class="highlight-item"><span class="highlight-dot"></span>Natural antimicrobial properties</li>
+              <li class="highlight-item"><span class="highlight-dot"></span>Warming effect on contact</li>
+              <li class="highlight-item"><span class="highlight-dot"></span>Inspired by the ancient tiger talisman</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <div class="container">
+        <span class="section-eyebrow">Ritual guide</span>
+        <h2 class="section-heading">How to Use</h2>
+        <div class="steps-grid reveal-group">
+          <div class="step">
+            <div class="step-num">01</div>
+            <h3 class="step-title">Warm the Tool</h3>
+            <p class="step-text">
+              Hold the Tiger Talisman in both hands for 60 seconds before beginning. Pure copper
+              conducts body heat rapidly — by the time you begin your practice, the tool will be
+              skin-temperature warm, which allows it to glide more effectively and penetrate the
+              fascial layers more deeply. Apply oil generously to the treatment area.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <h3 class="step-title">Scrape with Intention</h3>
+            <p class="step-text">
+              Hold the tool at a 30–45 degree angle to the skin. Apply firm, steady pressure and stroke
+              unidirectionally — always moving away from the center of the body toward the lymph nodes
+              (armpits, groin, collarbone). For the face, work from center outward. For the back, glide
+              downward on either side of the spine. For the chest, sweep horizontally toward the armpit.
+              Work each zone 5–10 strokes before moving on. Light redness (sha) is normal — it indicates
+              increased circulation.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <h3 class="step-title">Care for Your Copper</h3>
+            <p class="step-text">
+              After each use, wipe the surface clean with a dry cloth. Over months of use, the copper
+              will develop a warm patina — this is a natural oxidation process and a sign of an
+              authentic, well-loved tool. To restore brightness, buff with a small amount of lemon
+              juice and salt, then rinse quickly with water and dry immediately. Store in a dry,
+              breathable pouch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="also-section">
+      <div class="container">
+        <span class="section-eyebrow">Continue exploring</span>
+        <h2 class="section-heading">You May Also Like</h2>
+        <div class="also-grid reveal-group">
+          <article class="also-card">
+            <div class="also-card__img"><div class="also-ring"></div></div>
+            <div class="also-card__body"><h3 class="also-card__name">Frog Face Lift Massager</h3><p class="also-card__price">$68</p><a href="frog-face-lift.html" class="also-card__link">View Details</a></div>
+          </article>
+          <article class="also-card">
+            <div class="also-card__img"><div class="also-ring"></div></div>
+            <div class="also-card__body"><h3 class="also-card__name">Full Body Meridian Roller</h3><p class="also-card__price">$62</p><a href="body-meridian-roller.html" class="also-card__link">View Details</a></div>
+          </article>
+          <article class="also-card">
+            <div class="also-card__img"><div class="also-ring"></div></div>
+            <div class="also-card__body"><h3 class="also-card__name">Dual Face &amp; Neck Sculpting Tool</h3><p class="also-card__price">$78</p><a href="face-neck-sculpting.html" class="also-card__link">View Details</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand"><span class="footer__brand-logo">Meridian</span><p class="footer__brand-desc">Hand-crafted tools for the modern meridian practice.</p></div>
+        <div><h3 class="footer__col-title">Collection</h3><ul class="footer__links"><li><a href="frog-face-lift.html" class="footer__link">Frog Face Lift</a></li><li><a href="lotus-pod-eye.html" class="footer__link">Lotus Pod Eye</a></li><li><a href="bianshi-ring.html" class="footer__link">Bianshi Ring</a></li><li><a href="face-neck-sculpting.html" class="footer__link">Face &amp; Neck Tool</a></li><li><a href="body-meridian-roller.html" class="footer__link">Meridian Roller</a></li><li><a href="tiger-talisman.html" class="footer__link">Tiger Talisman</a></li></ul></div>
+        <div><h3 class="footer__col-title">Information</h3><ul class="footer__links"><li><a href="#" class="footer__link">About MERIDIAN</a></li><li><a href="#" class="footer__link">Materials</a></li><li><a href="#" class="footer__link">Shipping &amp; Returns</a></li></ul></div>
+        <div><h3 class="footer__col-title">Stay Connected</h3><div class="footer__newsletter"><p>Ritual notes — delivered quietly.</p><form class="footer__newsletter-form" onsubmit="return false;"><input type="email" class="footer__newsletter-input" placeholder="your@email.com" aria-label="Email" /><button type="submit" class="footer__newsletter-btn">Join</button></form></div></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__copyright">&copy; 2025 MERIDIAN. All rights reserved.</p><div class="footer__legal"><a href="#" class="footer__legal-link">Privacy</a><a href="#" class="footer__legal-link">Terms</a></div></div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+</html>

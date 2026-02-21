@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — MERIDIAN</title>
+  <meta name="description" content="How a software engineer's health crisis led to a TCM practitioner certification and the creation of MERIDIAN." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── About-page supplemental styles ── */
+
+    /* Hero */
+    .about-hero {
+      padding-top: calc(72px + 6rem);
+      padding-bottom: 5rem;
+      text-align: center;
+    }
+
+    .about-hero__title {
+      max-width: 18ch;
+      margin: 0 auto 1.5rem;
+    }
+
+    .about-hero__lede {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      color: var(--color-text-muted);
+      max-width: 48ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Chapters */
+    .about-chapters {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md) 6rem;
+    }
+
+    .chapter {
+      margin-bottom: 5.5rem;
+    }
+
+    .chapter__number {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+      margin-bottom: 0.75rem;
+    }
+
+    .chapter__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
+      font-weight: 300;
+      color: var(--color-text);
+      line-height: 1.3;
+      margin-bottom: 1.75rem;
+    }
+
+    .chapter__body p {
+      color: var(--color-text-muted);
+      font-size: 0.975rem;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .chapter__body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Credentials */
+    .credentials {
+      max-width: 760px;
+      margin: 0 auto 6rem;
+      padding: 3rem 3rem 3rem 3.25rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-copper);
+    }
+
+    .credentials__eyebrow {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+      margin-bottom: 1.5rem;
+    }
+
+    .credentials__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .credentials__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .credentials__list li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-copper);
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    /* CTA */
+    .about-cta {
+      text-align: center;
+      padding: 4rem var(--spacing-md) 8rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .about-cta__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+
+    .about-cta__body {
+      font-size: 0.9rem;
+      color: var(--color-text-faint);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Cart sidebar — overlay + drawer */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(420px, 100vw);
+      background: var(--color-surface);
+      border-left: 1px solid var(--color-border);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-sidebar.open {
+      transform: translateX(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .about-hero { padding-top: calc(64px + 4rem); padding-bottom: 3rem; }
+      .about-chapters { padding: 0 1.25rem 4rem; }
+      .credentials { margin: 0 1.25rem 4rem; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ NAV ══════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo__mark">
+            <div class="nav-logo__mark-inner"></div>
+          </div>
+          <span class="nav-logo__text">Meridian</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-links__item">Home</a></li>
+          <li><a href="products.html" class="nav-links__item">Products</a></li>
+          <li><a href="about.html" class="nav-links__item active">Our Story</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <button
+            class="nav-cart"
+            id="cartToggleBtn"
+            aria-label="Open cart"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="nav-cart__count" id="cartBadge" style="display:none;"></span>
+          </button>
+        </div>
+
+        <button class="nav-hamburger" aria-label="Open menu">
+          <span class="nav-hamburger__line"></span>
+          <span class="nav-hamburger__line"></span>
+          <span class="nav-hamburger__line"></span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <nav class="nav-drawer">
+    <ul class="nav-drawer__links">
+      <li><a href="index.html" class="nav-drawer__link">Home</a></li>
+      <li><a href="products.html" class="nav-drawer__link">Products</a></li>
+      <li><a href="about.html" class="nav-drawer__link">Our Story</a></li>
+    </ul>
+    <div class="nav-drawer__footer">
+      <p>Hand-crafted tools. Ancient practice.</p>
+    </div>
+  </nav>
+  <div class="nav-backdrop"></div>
+
+  <!-- Cart drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar"></div>
+
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="about-hero">
+    <div class="container container--narrow">
+      <span class="eyebrow">The story behind the practice</span>
+      <h1 class="about-hero__title">The Story Behind MERIDIAN</h1>
+      <p class="about-hero__lede">
+        A practitioner's tools, built for the rest of us.
+      </p>
+    </div>
+  </section>
+
+  <div class="container container--narrow">
+    <div class="divider divider--center"></div>
+  </div>
+
+
+  <!-- ══════════════ CHAPTERS ══════════════ -->
+  <div class="about-chapters">
+
+    <!-- Chapter 1 -->
+    <section class="chapter reveal">
+      <span class="chapter__number">Chapter One</span>
+      <h2 class="chapter__title">Twelve-hour days. A body in revolt.</h2>
+      <div class="chapter__body">
+        <p>
+          I spent the better part of a decade building software. Long hours in front of screens,
+          the kind of pressure that feels like productivity until the day your body simply refuses
+          to cooperate. For me, that refusal started quietly — tightness across the shoulders that
+          never fully released, a fatigue that sleep couldn't fix, headaches that arrived without
+          invitation and stayed for days.
+        </p>
+        <p>
+          I was in my early thirties. I had a computer science master's degree and a career I'd
+          worked hard for. I also had a neck that felt like concrete and a digestive system that
+          had forgotten how to function without protest. I saw doctors. I tried physical therapy.
+          I bought every ergonomic gadget the internet recommended. The problems would ease,
+          briefly, and then return — usually worse after a deadline sprint.
+        </p>
+        <p>
+          There's a specific kind of exhaustion that comes not from working too hard, but from
+          working in a way that is fundamentally disconnected from how your body was designed
+          to operate. I didn't have a word for it then. I just knew that something had to change,
+          and the changes I was making weren't reaching deep enough.
+        </p>
+        <p>
+          I didn't quit. I didn't burn out spectacularly. I just reached a quiet turning point
+          where I understood, with complete clarity, that optimizing my career was meaningless
+          if I couldn't also sustain the body doing the work.
+        </p>
+      </div>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section class="chapter reveal">
+      <span class="chapter__number">Chapter Two</span>
+      <h2 class="chapter__title">Ancient answers to modern problems.</h2>
+      <div class="chapter__body">
+        <p>
+          My introduction to Traditional Chinese Medicine was not mystical. It was practical.
+          A colleague mentioned she'd been seeing a TCM practitioner for a chronic lower back
+          condition that Western medicine hadn't resolved. I was skeptical — I'm a systems
+          thinker, trained to look for evidence. But I was also desperate enough to try
+          something different.
+        </p>
+        <p>
+          What I found surprised me. Not the treatments themselves, though those helped. What
+          surprised me was the framework — the idea that the body is a network of interconnected
+          systems, that energy moves along specific pathways, and that disruption in one area
+          inevitably surfaces in another. As someone who'd spent years thinking about how complex
+          software systems fail, this mapping felt intuitive in a way I hadn't expected.
+        </p>
+        <p>
+          I started studying. First informally — books, practitioners, seminars. Then formally.
+          I enrolled in a structured TCM program while still working, studied meridian theory,
+          acupoint anatomy, gua sha, and tui na. It took years. There were late nights that
+          looked very different from my old late nights — fewer screens, more textbooks filled
+          with anatomical diagrams I was slowly learning to read in both Chinese and English.
+        </p>
+        <p>
+          When I finally received my Traditional Chinese Medicine Practitioner certification,
+          I had something I didn't have before: a language for what had been happening in my
+          body, and practical tools to address it. More than that, I had results I could feel.
+          The shoulder tension that had been my constant companion for years — measurably,
+          consistently better. Not because I'd found a workaround, but because I'd learned to
+          address the actual source.
+        </p>
+      </div>
+    </section>
+
+    <!-- Chapter 3 -->
+    <section class="chapter reveal">
+      <span class="chapter__number">Chapter Three</span>
+      <h2 class="chapter__title">What actually worked.</h2>
+      <div class="chapter__body">
+        <p>
+          The tools matter. This is something I had to learn by working with many different
+          implements before I understood what made certain ones genuinely effective and others
+          merely decorative.
+        </p>
+        <p>
+          Copper kept appearing in my research and practice. H65 copper specifically — an alloy
+          with enough hardness to hold a useful edge while retaining the thermal conductivity
+          and natural microbicidal properties that make copper genuinely functional in bodywork.
+          When copper contacts skin at the right pressure and angle, you feel it working in a
+          way that plastic or stainless steel simply don't replicate. There's a warmth to it.
+          A responsiveness.
+        </p>
+        <p>
+          The wood components — black walnut, rosewood, golden silk ebony — aren't aesthetic
+          choices. Each wood has a different density, a different feel in the hand after extended
+          use. Hand-sanding without lacquer or chemical coating matters because you're pressing
+          these tools against skin. What goes on the tool eventually contacts you. I refused to
+          compromise on that.
+        </p>
+        <p>
+          Every piece I selected or helped refine went through months of testing in my own
+          practice before I considered sharing it. The curves had to follow actual anatomy —
+          not a designer's approximation of anatomy, but the real contours of the orbital bone,
+          the nasolabial groove, the sternocleidomastoid. The weight had to make sense for
+          sustained use. I've discarded a lot of beautiful objects because they didn't work
+          as tools.
+        </p>
+      </div>
+    </section>
+
+    <!-- Chapter 4 -->
+    <section class="chapter reveal">
+      <span class="chapter__number">Chapter Four</span>
+      <h2 class="chapter__title">Not a brand. A practice.</h2>
+      <div class="chapter__body">
+        <p>
+          I didn't set out to start a company. I set out to share something that worked — and
+          found that the most honest way to do that was to put the tools directly in people's
+          hands, with enough context to actually use them.
+        </p>
+        <p>
+          MERIDIAN exists because I kept having the same conversation: colleagues asking what
+          I was using on my face, friends noticing that something had shifted. Everyone wanted
+          the tools, but more importantly, they wanted to understand why the tools worked —
+          the meridian logic behind each motion, the anatomical reasoning beneath each curve.
+        </p>
+        <p>
+          That's what MERIDIAN tries to be. Not a wellness brand selling aesthetics. A
+          practitioner's approach, made accessible. Every product in this collection has
+          a specific anatomical target and a specific TCM rationale. I can explain exactly
+          why each piece is shaped the way it is, and which pathways it's designed to address.
+        </p>
+        <p>
+          The ritual isn't decoration. It's the point.
+        </p>
+      </div>
+    </section>
+
+  </div><!-- /.about-chapters -->
+
+
+  <!-- ══════════════ CREDENTIALS ══════════════ -->
+  <section class="credentials reveal">
+    <span class="credentials__eyebrow">Practitioner Background</span>
+    <ul class="credentials__list">
+      <li>Traditional Chinese Medicine Practitioner Certification</li>
+      <li>M.Sc. Computer Science — former software engineer, 10+ years in tech industry</li>
+      <li>Certified in Gua Sha, Tui Na, and Meridian Acupoint Therapy</li>
+      <li>8+ years of personal practice and self-directed study in TCM</li>
+      <li>3+ years of formal clinical training and supervised practice</li>
+    </ul>
+  </section>
+
+
+  <!-- ══════════════ CTA ══════════════ -->
+  <section class="about-cta reveal">
+    <h3 class="about-cta__title">Ready to begin your own practice?</h3>
+    <p class="about-cta__body">
+      Every tool in the collection comes with care instructions and guidance on technique.
+      Start wherever feels right.
+    </p>
+    <a href="products.html" class="btn btn-primary">Start your ritual</a>
+  </section>
+
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="footer__brand-logo">Meridian</span>
+          <p class="footer__brand-desc">
+            Hand-crafted copper and wood tools grounded in Traditional Chinese Medicine
+            and anatomical precision.
+          </p>
+        </div>
+        <div>
+          <p class="footer__col-title">Navigate</p>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">Home</a></li>
+            <li><a href="products.html" class="footer__link">Products</a></li>
+            <li><a href="about.html" class="footer__link">Our Story</a></li>
+            <li><a href="cart.html" class="footer__link">Cart</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Practice</p>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">How to use</a></li>
+            <li><a href="#" class="footer__link">Meridian guide</a></li>
+            <li><a href="#" class="footer__link">Care &amp; storage</a></li>
+          </ul>
+        </div>
+        <div class="footer__newsletter">
+          <p class="footer__col-title">Stay in practice</p>
+          <p>Technique guides, new tools, and practitioner notes.</p>
+          <form class="footer__newsletter-form" onsubmit="return false;">
+            <input
+              type="email"
+              class="footer__newsletter-input"
+              placeholder="your@email.com"
+              aria-label="Email address"
+            />
+            <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 MERIDIAN. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#" class="footer__legal-link">Privacy Policy</a>
+          <a href="#" class="footer__legal-link">Terms</a>
+          <a href="#" class="footer__legal-link">Shipping</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
