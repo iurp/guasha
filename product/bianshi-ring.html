@@ -55,7 +55,7 @@
     .also-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
     .also-card { background: var(--color-bg); border: 1px solid var(--color-border); overflow: hidden; transition: border-color 0.3s; }
     .also-card:hover { border-color: rgba(184,115,51,0.4); }
-    .also-card__img { aspect-ratio: 3 / 2; background: linear-gradient(135deg, #1a1208 0%, #2a1c0c 50%, #0f0b05 100%); display: flex; align-items: center; justify-content: center; }
+    .also-card__img { aspect-ratio: 3 / 2; overflow: hidden; }
     .also-ring { width: 40px; height: 40px; border: 1px solid rgba(184,115,51,0.3); border-radius: 50%; }
     .also-card__body { padding: 20px 22px 24px; }
     .also-card__name { font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-text); margin-bottom: 6px; }
@@ -207,15 +207,15 @@
         <h2 class="section-heading">You May Also Like</h2>
         <div class="also-grid reveal-group">
           <article class="also-card">
-            <div class="also-card__img"><div class="also-ring"></div></div>
+            <div class="also-card__img"><img src="../images/products/lotus-pod/image_1.jpg" alt="lotus-pod" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
             <div class="also-card__body"><h3 class="also-card__name">Lotus Pod Eye Massager</h3><p class="also-card__price">$54</p><a href="lotus-pod-eye.html" class="also-card__link">View Details</a></div>
           </article>
           <article class="also-card">
-            <div class="also-card__img"><div class="also-ring"></div></div>
+            <div class="also-card__img"><img src="../images/products/body-roller/image_1.jpg" alt="body-roller" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
             <div class="also-card__body"><h3 class="also-card__name">Full Body Meridian Roller</h3><p class="also-card__price">$62</p><a href="body-meridian-roller.html" class="also-card__link">View Details</a></div>
           </article>
           <article class="also-card">
-            <div class="also-card__img"><div class="also-ring"></div></div>
+            <div class="also-card__img"><img src="../images/products/tiger-talisman/image_1.jpg" alt="tiger-talisman" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
             <div class="also-card__body"><h3 class="also-card__name">Tiger Talisman Copper Gua Sha</h3><p class="also-card__price">$58</p><a href="tiger-talisman.html" class="also-card__link">View Details</a></div>
           </article>
         </div>
