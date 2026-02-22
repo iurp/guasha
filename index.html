@@ -475,40 +475,13 @@
     }
     .link-underline:hover { opacity: 0.5; }
     .founder-visual { display: flex; align-items: center; justify-content: center; }
-    .founder-diagram {
-      width: 340px; height: 340px;
-      border-radius: 50%;
-      background: linear-gradient(160deg, #E8DFD0 0%, #F5F0EB 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      border: 1px solid rgba(26,23,21,0.10);
-    }
-    .founder-diagram::before {
-      content: '';
-      position: absolute;
-      inset: 20px;
-      border-radius: 50%;
-      border: 1px solid rgba(26,23,21,0.08);
-    }
-    .founder-diagram::after {
-      content: '';
-      position: absolute;
-      inset: 55px;
-      border-radius: 50%;
-      border: 1px solid rgba(26,23,21,0.07);
-    }
-    .diagram-lines { position: absolute; inset: 0; overflow: visible; }
-    .founder-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      font-style: italic;
-      font-weight: 300;
-      color: rgba(26,23,21,0.22);
-      position: relative;
-      z-index: 1;
+    .founder-photo {
+      width: 380px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+      box-shadow: 0 20px 60px rgba(26,23,21,0.12);
     }
     .founder-title {
       font-family: 'Jost', sans-serif;
@@ -821,20 +794,7 @@
         <a href="about.html" class="link-underline">Read Yan's Story</a>
       </div>
       <div class="founder-visual">
-        <div class="founder-diagram">
-          <svg class="diagram-lines" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="170" y1="0" x2="170" y2="340" stroke="rgba(26,23,21,0.07)" stroke-width="1"/>
-            <line x1="0" y1="170" x2="340" y2="170" stroke="rgba(26,23,21,0.07)" stroke-width="1"/>
-            <line x1="40" y1="40" x2="300" y2="300" stroke="rgba(26,23,21,0.05)" stroke-width="1"/>
-            <line x1="300" y1="40" x2="40" y2="300" stroke="rgba(26,23,21,0.05)" stroke-width="1"/>
-            <circle cx="170" cy="20" r="4" fill="#BF9060" opacity="0.5"/>
-            <circle cx="170" cy="320" r="4" fill="#BF9060" opacity="0.3"/>
-            <circle cx="20" cy="170" r="4" fill="#BF9060" opacity="0.3"/>
-            <circle cx="320" cy="170" r="4" fill="#BF9060" opacity="0.4"/>
-          </svg>
-          <span class="founder-name">Yan</span>
-          <span class="founder-title">TCM Practitioner &amp; Founder</span>
-        </div>
+        <img class="founder-photo" src="images/yan-portrait.jpg" alt="Yan — TCM Practitioner & Founder of MERIDIAN" />
       </div>
     </div>
   </section>
