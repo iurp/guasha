@@ -5,7 +5,7 @@
    ============================================================================= */
 
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap');
 
 
 /* =============================================================================
@@ -14,21 +14,22 @@
 
 :root {
   /* Color Palette — Light theme (fixed) */
-  --color-bg:           #f8f5f0;
-  --color-surface:      #f0ebe3;
-  --color-surface-2:    #e8e0d4;
-  --color-copper:       #b87333;
-  --color-copper-light: #d4956a;
+  --color-bg:           #F5F0EB;
+  --color-surface:      #EDE7DD;
+  --color-surface-2:    #E2D8CC;
+  --color-copper:       #BF9060;
+  --color-copper-light: #D4A878;
   --color-wood:         #6b4f2a;
-  --color-text:         #1a1614;
-  --color-text-muted:   #5a4f47;
+  --color-text:         #1A1715;
+  --color-text-muted:   #7A6E68;
   --color-text-faint:   #9c8f85;
-  --color-border:       #d4c8bc;
-  --color-border-light: #e0d6cc;
+  --color-border:       rgba(26,23,21,0.12);
+  --color-border-light: rgba(26,23,21,0.08);
+  --color-blush-bg:     #EBD9D2;
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans:  'Jost', system-ui, -apple-system, sans-serif;
 
   /* Spacing Scale */
   --spacing-xs: 0.5rem;
@@ -381,6 +382,39 @@ hr {
 
 
 /* =============================================================================
+   Announcement Bar
+   ============================================================================= */
+
+.announce {
+  background: var(--color-text);
+  color: #fff;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+}
+.announce a { color: #fff; text-decoration: underline; }
+
+
+/* =============================================================================
+   Section Label (eyebrow replacement)
+   ============================================================================= */
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: block;
+}
+
+
+/* =============================================================================
    Button Styles
    ============================================================================= */
 
@@ -395,7 +429,7 @@ hr {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 0.875rem 2.25rem;
-  border-radius: var(--radius-sm);
+  border-radius: 100px;
   transition: all var(--transition-base);
   white-space: nowrap;
   position: relative;
@@ -476,6 +510,79 @@ hr {
   font-size: var(--text-sm);
   padding: 1.125rem 3rem;
 }
+
+/* Pill button variants (new design system) */
+.btn-pill {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .25s;
+}
+.btn-pill-sm {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 11px 26px;
+  border-radius: 100px;
+  border: 1.5px solid var(--color-text);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .25s;
+}
+.btn-pill-sm:hover { background: var(--color-text); color: #fff; }
+.btn-pill-dark {
+  background: var(--color-text);
+  color: #fff;
+  border: 1.5px solid var(--color-text);
+}
+.btn-pill-dark:hover { opacity: 0.8; }
+.btn-pill-outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1.5px solid var(--color-text);
+}
+.btn-pill-outline:hover { background: var(--color-text); color: #fff; }
+.btn-view {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border: 1.5px solid var(--color-text);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .22s;
+}
+.btn-view:hover { background: var(--color-text); color: #fff; }
+.link-underline {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-text);
+  padding-bottom: 2px;
+  transition: opacity .2s;
+}
+.link-underline:hover { opacity: 0.5; }
 
 
 /* =============================================================================
@@ -1575,5 +1682,95 @@ body.nav-open {
 
 /* Nav background — light theme */
 .nav {
-  background: rgba(248, 245, 240, 0.92);
+  background: var(--color-bg);
+}
+
+/* =============================================================================
+   Dark Footer (new design)
+   ============================================================================= */
+
+.footer-dark {
+  background: var(--color-text);
+  color: #fff;
+  padding: 64px 40px 36px;
+}
+.footer-dark .footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.footer-dark .footer-top {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 30px;
+}
+.footer-dark .footer-brand-logo {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 16px;
+}
+.footer-dark .footer-tagline {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+.footer-dark .footer-col h4 {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 20px;
+}
+.footer-dark .footer-col ul { list-style: none; }
+.footer-dark .footer-col li { margin-bottom: 11px; }
+.footer-dark .footer-col a {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  transition: color .2s;
+}
+.footer-dark .footer-col a:hover { color: #fff; }
+.footer-dark .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-dark .footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.05em;
+}
+.footer-dark .footer-legal { display: flex; gap: 24px; }
+.footer-dark .footer-legal a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  transition: color .2s;
+}
+.footer-dark .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+@media (max-width: 768px) {
+  .footer-dark .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .footer-dark .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
 }

@@ -19,7 +19,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
@@ -29,15 +29,15 @@
        Design tokens
     ───────────────────────────────────────── */
     :root {
-      --color-bg:        #f8f5f0;
-      --color-surface:   #f0ebe3;
-      --color-surface-2: #e8e0d4;
-      --color-border:    #d4c8bc;
-      --color-copper:    #b87333;
-      --color-copper-lt: #d4956a;
+      --color-bg:        #F5F0EB;
+      --color-surface:   #EDE7DD;
+      --color-surface-2: #E2D8CC;
+      --color-border:    rgba(26,23,21,0.12);
+      --color-copper:    #BF9060;
+      --color-copper-lt: #D4A878;
       --color-copper-dk: #7a4a20;
-      --color-text:      #1a1614;
-      --color-text-muted:#5a4f47;
+      --color-text:      #1A1715;
+      --color-text-muted:#7A6E68;
       --color-text-faint:#9c8f85;
       --color-white:     #1a1614;
 
@@ -958,6 +958,9 @@
 </head>
 <body>
 
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce">FREE US SHIPPING OVER $75</div>
+
   <!-- ═══════════════════════════
        NAV
   ══════════════════════════════ -->
@@ -1279,53 +1282,48 @@
   </section>
 
 
-  <!-- ═══════════════════════════
-       FOOTER
-  ══════════════════════════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__grid">
-
-        <div class="footer__brand">
-          <p class="footer__logo">MERIDIAN</p>
-          <p class="footer__tagline">Ancient craft. Modern ritual. Every tool hand-finished, practitioner-designed.</p>
+  <!-- FOOTER -->
+  <footer class="footer-dark" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">Meridian</a>
+          <p class="footer-tagline">Ancient craft.<br>Modern ritual.</p>
         </div>
-
-        <div>
-          <p class="footer__col-title">Shop</p>
-          <ul class="footer__links">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
             <li><a href="products.html">All Tools</a></li>
-            <li><a href="product/frog-face-lift.html">Frog Face Lift</a></li>
-            <li><a href="product/lotus-pod-eye.html">Lotus Pod</a></li>
-            <li><a href="product/face-neck-sculpting.html">Face &amp; Neck Tool</a></li>
+            <li><a href="product/frog-face-lift.html">Frog Face Lift Massager</a></li>
+            <li><a href="product/lotus-pod-eye.html">Lotus Pod Eye Massager</a></li>
+            <li><a href="product/face-neck-sculpting.html">Dual Face &amp; Neck Tool</a></li>
           </ul>
         </div>
-
-        <div>
-          <p class="footer__col-title">Explore</p>
-          <ul class="footer__links">
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="#">How to Use</a></li>
+            <li><a href="#">TCM &amp; Meridians</a></li>
+            <li><a href="#">Ritual Guide</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
             <li><a href="about.html">Our Story</a></li>
-            <li><a href="journal.html">Journal</a></li>
-            <li><a href="how-to.html">How to Use</a></li>
+            <li><a href="about.html">The Practitioner</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Shipping &amp; Returns</a></li>
           </ul>
         </div>
-
-        <div>
-          <p class="footer__col-title">Help</p>
-          <ul class="footer__links">
-            <li><a href="shipping.html">Shipping</a></li>
-            <li><a href="returns.html">Returns</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-          </ul>
-        </div>
-
       </div>
-
-      <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 MERIDIAN. All rights reserved.</p>
-        <div class="footer__copper-line" aria-hidden="true"></div>
-        <p class="footer__copy">Designed by a certified TCM practitioner.</p>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Meridian. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
