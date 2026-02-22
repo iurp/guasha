@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Journal — MERIDIAN</title>
+  <meta name="description" content="Practitioner insights on gua sha, TCM meridian therapy, copper tools, and the science behind the ritual. Written by a certified TCM practitioner." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      color: #1A1715;
+      background: #F5F0EB;
+      -webkit-font-smoothing: antialiased;
+    }
+    :root {
+      --cream:   #F5F0EB;
+      --cream-2: #EDE7DD;
+      --dark:    #1A1715;
+      --warm:    #BF9060;
+      --muted:   #7A6E68;
+      --border:  rgba(26,23,21,0.12);
+    }
+
+    /* ── Journal Header ── */
+    .journal-hero {
+      background: var(--cream-2);
+      padding: 80px 40px 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .journal-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .journal-hero .section-label { margin-bottom: 20px; }
+    .journal-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+    .journal-hero h1 em { font-style: italic; }
+    .journal-hero p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    /* ── Article Grid ── */
+    .journal-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 40px 96px;
+    }
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 32px;
+    }
+    .article-card { cursor: pointer; }
+    .article-card:hover .article-title { opacity: 0.6; }
+    .article-img-wrap {
+      aspect-ratio: 3/2;
+      overflow: hidden;
+      background: var(--cream-2);
+      margin-bottom: 20px;
+    }
+    .article-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .article-card:hover .article-img { transform: scale(1.03); }
+    .article-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 10px;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      color: var(--dark);
+      text-decoration: none;
+      display: block;
+      transition: opacity .2s;
+    }
+    .article-excerpt {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Featured (first article larger) ── */
+    .journal-grid .article-card:first-child {
+      grid-column: span 2;
+    }
+    .journal-grid .article-card:first-child .article-title {
+      font-size: 34px;
+    }
+    .journal-grid .article-card:first-child .article-img-wrap {
+      aspect-ratio: 16/9;
+    }
+
+    /* ── Coming Soon State ── */
+    .coming-soon-note {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .coming-soon-note h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+    .coming-soon-note p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    /* ── Newsletter ── */
+    .journal-newsletter {
+      background: var(--dark);
+      padding: 72px 40px;
+      text-align: center;
+      color: #fff;
+    }
+    .journal-newsletter .section-label {
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 18px;
+    }
+    .journal-newsletter h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .journal-newsletter h2 em { font-style: italic; }
+    .journal-newsletter p { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+    .email-form {
+      display: flex;
+      max-width: 440px;
+      margin: 0 auto;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+    }
+    .email-form input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 13px 20px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: #fff;
+      outline: none;
+    }
+    .email-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .email-form button {
+      background: #fff;
+      color: var(--dark);
+      border: none;
+      padding: 13px 24px;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 100px;
+      transition: opacity .2s;
+    }
+    .email-form button:hover { opacity: 0.8; }
+
+    @media (max-width: 900px) {
+      .journal-grid { grid-template-columns: 1fr; }
+      .journal-grid .article-card:first-child { grid-column: span 1; }
+      .journal-grid .article-card:first-child .article-title { font-size: 26px; }
+      .journal-hero, .journal-section { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce">FREE US SHIPPING OVER $75</div>
+
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="site-logo">Meridian</a>
+      <ul class="site-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Collection</a></li>
+        <li><a href="journal.html" class="active">Journal</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="site-icons">
+        <a href="cart.html" aria-label="Shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </a>
+        <button class="site-hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="site-drawer" id="navDrawer">
+    <a href="index.html">Home</a>
+    <a href="products.html">Collection</a>
+    <a href="journal.html">Journal</a>
+    <a href="about.html">About</a>
+    <a href="cart.html">Cart</a>
+  </div>
+  <div class="site-backdrop" id="navBackdrop"></div>
+
+
+  <!-- JOURNAL HERO -->
+  <section class="journal-hero">
+    <div class="journal-hero-inner">
+      <p class="section-label">From the Practitioner</p>
+      <h1>The <em>Journal</em></h1>
+      <p>TCM insights, gua sha technique, the science of copper, and the rituals worth keeping. Written by a certified practitioner.</p>
+    </div>
+  </section>
+
+
+  <!-- ARTICLES -->
+  <section class="journal-section">
+    <div class="journal-grid">
+
+      <!-- Article 1 — Featured -->
+      <article class="article-card">
+        <div class="article-img-wrap">
+          <img src="images/products/frog-face-lift/image_1.jpg" alt="Gua sha technique on face" class="article-img" loading="lazy" />
+        </div>
+        <p class="article-tag">Technique</p>
+        <a href="#" class="article-title">Why direction matters more than pressure in gua sha</a>
+        <p class="article-excerpt">Most people approach gua sha like a massage — more pressure, more results. The meridian logic says otherwise. Here's what a certified practitioner does differently.</p>
+        <span class="article-meta">February 2026 · 6 min read</span>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="article-card">
+        <div class="article-img-wrap">
+          <img src="images/products/lotus-pod/image_1.jpg" alt="Copper tools" class="article-img" loading="lazy" />
+        </div>
+        <p class="article-tag">Materials</p>
+        <a href="#" class="article-title">H65 copper: why the alloy matters</a>
+        <p class="article-excerpt">Not all copper tools are equal. The alloy composition changes the thermal conductivity, hardness, and antimicrobial properties — all of which affect how a tool performs on skin.</p>
+        <span class="article-meta">January 2026 · 4 min read</span>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="article-card">
+        <div class="article-img-wrap">
+          <img src="images/products/face-neck/image_1.jpg" alt="Meridian points on face" class="article-img" loading="lazy" />
+        </div>
+        <p class="article-tag">TCM Basics</p>
+        <a href="#" class="article-title">The three facial meridians every gua sha practitioner should know</a>
+        <p class="article-excerpt">The stomach, large intestine, and gallbladder meridians all pass through the face. Understanding their pathways changes everything about how you use your tools.</p>
+        <span class="article-meta">January 2026 · 5 min read</span>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- NEWSLETTER -->
+  <section class="journal-newsletter">
+    <p class="section-label">Stay in the Practice</p>
+    <h2>Practitioner notes, <em>monthly.</em></h2>
+    <p>Technique guides, new entries, and early access. No noise.</p>
+    <form class="email-form" onsubmit="return false">
+      <input type="email" placeholder="Your email address" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer-dark" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">Meridian</a>
+          <p class="footer-tagline">Ancient craft.<br>Modern ritual.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">All Tools</a></li>
+            <li><a href="product/frog-face-lift.html">Frog Face Lift Massager</a></li>
+            <li><a href="product/lotus-pod-eye.html">Lotus Pod Eye Massager</a></li>
+            <li><a href="product/face-neck-sculpting.html">Dual Face &amp; Neck Tool</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="journal.html">The Journal</a></li>
+            <li><a href="#">TCM &amp; Meridians</a></li>
+            <li><a href="#">Ritual Guide</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html">The Practitioner</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Shipping &amp; Returns</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Meridian. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('hamburgerBtn');
+    const drawer = document.getElementById('navDrawer');
+    const backdrop = document.getElementById('navBackdrop');
+    btn.addEventListener('click', () => {
+      drawer.classList.toggle('open');
+      backdrop.classList.toggle('open');
+    });
+    backdrop.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+    });
+  </script>
+
+</body>
+</html>
