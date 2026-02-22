@@ -9,110 +9,272 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ── About-page supplemental styles ── */
+    /* ── About-page styles ── */
 
     /* Hero */
     .about-hero {
-      padding-top: calc(72px + 6rem);
-      padding-bottom: 5rem;
+      padding-top: calc(72px + 5rem);
+      padding-bottom: 4rem;
       text-align: center;
     }
-
     .about-hero__title {
-      max-width: 18ch;
-      margin: 0 auto 1.5rem;
-    }
-
-    .about-hero__lede {
+      max-width: 20ch;
+      margin: 0.75rem auto 1.25rem;
       font-family: var(--font-serif);
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-style: italic;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+    }
+    .about-hero__lede {
+      font-size: 0.925rem;
       color: var(--color-text-muted);
-      max-width: 48ch;
+      max-width: 42ch;
       margin: 0 auto;
       line-height: 1.7;
     }
 
-    /* Chapters */
-    .about-chapters {
-      max-width: 760px;
+    /* Stats row */
+    .about-stats {
+      background: var(--color-text);
+      color: #fff;
+      padding: 3rem var(--spacing-md);
+    }
+    .about-stats__inner {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 var(--spacing-md) 6rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.12);
     }
-
-    .chapter {
-      margin-bottom: 5.5rem;
+    .about-stat {
+      background: var(--color-text);
+      padding: 2.5rem 2rem;
+      text-align: center;
     }
-
-    .chapter__number {
+    .about-stat__num {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--color-copper);
+      line-height: 1;
       display: block;
+      margin-bottom: 0.5rem;
+    }
+    .about-stat__label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* Split — intro */
+    .about-split {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 6rem var(--spacing-md);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-split__eyebrow {
       font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--color-copper);
-      margin-bottom: 0.75rem;
+      display: block;
+      margin-bottom: 1.25rem;
     }
-
-    .chapter__title {
+    .about-split__heading {
       font-family: var(--font-serif);
-      font-size: clamp(1.55rem, 3vw, 2.1rem);
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
       font-weight: 300;
+      line-height: 1.35;
       color: var(--color-text);
-      line-height: 1.3;
       margin-bottom: 1.75rem;
     }
-
-    .chapter__body p {
+    .about-split__body p {
+      font-size: 0.925rem;
       color: var(--color-text-muted);
-      font-size: 0.975rem;
       line-height: 1.85;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .about-split__body p:last-child { margin-bottom: 0; }
+
+    /* Founder portrait */
+    .about-portrait {
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      display: block;
     }
 
-    .chapter__body p:last-child {
-      margin-bottom: 0;
+    /* Pull quote */
+    .pull-quote {
+      background: var(--color-blush-bg);
+      padding: 5rem var(--spacing-md);
+      text-align: center;
+    }
+    .pull-quote__text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 2.8vw, 1.85rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text);
+      max-width: 38ch;
+      margin: 0 auto 1.25rem;
+      line-height: 1.5;
+    }
+    .pull-quote__attr {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+    }
+
+    /* Pillars */
+    .about-pillars {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 6rem var(--spacing-md);
+    }
+    .about-pillars__header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .about-pillars__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      color: var(--color-text);
+      margin-top: 0.75rem;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--color-border);
+    }
+    .pillar {
+      background: var(--color-surface);
+      padding: 2.5rem 2rem;
+    }
+    .pillar__num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-copper);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .pillar__title {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+    .pillar__body {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+
+    /* Materials section */
+    .about-materials {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2rem var(--spacing-md) 6rem;
+    }
+    .about-materials__eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+    .about-materials__heading {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 2rem;
+    }
+    .materials-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--color-border);
+    }
+    .materials-list li {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .mat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+      padding-top: 0.15rem;
+    }
+    .mat-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
     }
 
     /* Credentials */
     .credentials {
       max-width: 760px;
       margin: 0 auto 6rem;
-      padding: 3rem 3rem 3rem 3.25rem;
+      padding: 3rem;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
-      border-left: 3px solid var(--color-copper);
+      border-top: 2px solid var(--color-copper);
     }
-
     .credentials__eyebrow {
       display: block;
       font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--color-copper);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
-
     .credentials__list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0;
     }
-
     .credentials__list li {
       display: flex;
       align-items: flex-start;
       gap: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       color: var(--color-text-muted);
-      line-height: 1.5;
+      line-height: 1.6;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--color-border);
     }
-
+    .credentials__list li:last-child { border-bottom: none; }
     .credentials__list li::before {
       content: '';
       display: block;
-      width: 4px;
-      height: 4px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: var(--color-copper);
       margin-top: 0.55rem;
@@ -123,64 +285,33 @@
     .about-cta {
       text-align: center;
       padding: 4rem var(--spacing-md) 8rem;
-      max-width: 600px;
+      max-width: 540px;
       margin: 0 auto;
     }
-
     .about-cta__title {
       font-family: var(--font-serif);
-      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-size: clamp(1.5rem, 2.8vw, 1.9rem);
       font-weight: 300;
       color: var(--color-text);
       margin-bottom: 1rem;
     }
-
     .about-cta__body {
-      font-size: 0.9rem;
-      color: var(--color-text-faint);
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
       margin-bottom: 2.5rem;
-    }
-
-    /* Cart sidebar — overlay + drawer */
-    .cart-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-      z-index: 200;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .cart-overlay.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .cart-sidebar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: min(420px, 100vw);
-      background: var(--color-surface);
-      border-left: 1px solid var(--color-border);
-      z-index: 201;
-      transform: translateX(100%);
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cart-sidebar.open {
-      transform: translateX(0);
+      line-height: 1.7;
     }
 
     /* Responsive */
-    @media (max-width: 640px) {
-      .about-hero { padding-top: calc(64px + 4rem); padding-bottom: 3rem; }
-      .about-chapters { padding: 0 1.25rem 4rem; }
+    @media (max-width: 720px) {
+      .about-split { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.25rem; }
+      .about-portrait { aspect-ratio: 4 / 3; } /* landscape crop on mobile */
+      .about-stats__inner { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .materials-list li { grid-template-columns: 1fr; gap: 0.5rem; }
       .credentials { margin: 0 1.25rem 4rem; padding: 2rem 1.5rem; }
+      .about-materials { padding: 2rem 1.25rem 4rem; }
+      .about-pillars { padding: 4rem 1.25rem; }
     }
   </style>
 </head>
@@ -224,192 +355,152 @@
   </div>
   <div class="site-backdrop" id="navBackdrop"></div>
 
-  <!-- Cart drawer -->
-  <div class="cart-overlay" id="cartOverlay"></div>
-  <div class="cart-sidebar" id="cartSidebar"></div>
 
-
-  <!-- ══════════════ HERO ══════════════ -->
+  <!-- ── HERO ── -->
   <section class="about-hero">
     <div class="container container--narrow">
-      <span class="eyebrow">The story behind the practice</span>
-      <h1 class="about-hero__title">The Story Behind MERIDIAN</h1>
+      <span class="section-label">The story behind the practice</span>
+      <h1 class="about-hero__title">Built by a practitioner. For everyone.</h1>
       <p class="about-hero__lede">
-        A practitioner's tools, built for the rest of us.
+        A software engineer's health crisis. A TCM certification.
+        A decade of testing tools until only the real ones remained.
       </p>
     </div>
   </section>
 
-  <div class="container container--narrow">
-    <div class="divider divider--center"></div>
+
+  <!-- ── STATS ── -->
+  <div class="about-stats">
+    <div class="about-stats__inner">
+      <div class="about-stat">
+        <span class="about-stat__num">10+</span>
+        <span class="about-stat__label">Years in tech</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat__num">3+</span>
+        <span class="about-stat__label">Years clinical training</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat__num">8+</span>
+        <span class="about-stat__label">Years personal practice</span>
+      </div>
+    </div>
   </div>
 
 
-  <!-- ══════════════ CHAPTERS ══════════════ -->
-  <div class="about-chapters">
-
-    <!-- Chapter 1 -->
-    <section class="chapter reveal">
-      <span class="chapter__number">Chapter One</span>
-      <h2 class="chapter__title">Twelve-hour days. A body in revolt.</h2>
-      <div class="chapter__body">
+  <!-- ── FOUNDER INTRO ── -->
+  <div class="about-split">
+    <div class="about-split__left">
+      <div class="about-portrait">
+        <img src="images/yan-portrait.jpg" alt="Yan, Founder of MERIDIAN" />
+      </div>
+    </div>
+    <div class="about-split__right">
+      <span class="about-split__eyebrow">Where it started</span>
+      <h2 class="about-split__heading">Twelve-hour days.<br>A body in revolt.</h2>
+      <div class="about-split__body">
         <p>
-          I spent the better part of a decade building software. Long hours in front of screens,
-          the kind of pressure that feels like productivity until the day your body simply refuses
-          to cooperate. For me, that refusal started quietly — tightness across the shoulders that
-          never fully released, a fatigue that sleep couldn't fix, headaches that arrived without
-          invitation and stayed for days.
+          I spent the better part of a decade building software. Long hours, constant pressure —
+          the kind that feels like productivity until the day your body simply refuses to cooperate.
+          For me, that refusal came as tightness that never released, headaches that stayed for days,
+          and a fatigue sleep couldn't fix.
         </p>
         <p>
-          I was in my early thirties. I had a computer science master's degree and a career I'd
-          worked hard for. I also had a neck that felt like concrete and a digestive system that
-          had forgotten how to function without protest. I saw doctors. I tried physical therapy.
-          I bought every ergonomic gadget the internet recommended. The problems would ease,
-          briefly, and then return — usually worse after a deadline sprint.
-        </p>
-        <p>
-          There's a specific kind of exhaustion that comes not from working too hard, but from
-          working in a way that is fundamentally disconnected from how your body was designed
-          to operate. I didn't have a word for it then. I just knew that something had to change,
-          and the changes I was making weren't reaching deep enough.
-        </p>
-        <p>
-          I didn't quit. I didn't burn out spectacularly. I just reached a quiet turning point
-          where I understood, with complete clarity, that optimizing my career was meaningless
-          if I couldn't also sustain the body doing the work.
+          I was in my early thirties. I'd tried doctors, physical therapy, every ergonomic gadget
+          the internet could recommend. The problems would ease, briefly, and return. I eventually
+          understood, with complete clarity, that optimizing my career meant nothing if I couldn't
+          sustain the body doing the work.
         </p>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- Chapter 2 -->
-    <section class="chapter reveal">
-      <span class="chapter__number">Chapter Two</span>
-      <h2 class="chapter__title">Ancient answers to modern problems.</h2>
-      <div class="chapter__body">
-        <p>
-          My introduction to Traditional Chinese Medicine was not mystical. It was practical.
-          A colleague mentioned she'd been seeing a TCM practitioner for a chronic lower back
-          condition that Western medicine hadn't resolved. I was skeptical — I'm a systems
-          thinker, trained to look for evidence. But I was also desperate enough to try
-          something different.
-        </p>
-        <p>
-          What I found surprised me. Not the treatments themselves, though those helped. What
-          surprised me was the framework — the idea that the body is a network of interconnected
-          systems, that energy moves along specific pathways, and that disruption in one area
-          inevitably surfaces in another. As someone who'd spent years thinking about how complex
-          software systems fail, this mapping felt intuitive in a way I hadn't expected.
-        </p>
-        <p>
-          I started studying. First informally — books, practitioners, seminars. Then formally.
-          I enrolled in a structured TCM program while still working, studied meridian theory,
-          acupoint anatomy, gua sha, and tui na. It took years. There were late nights that
-          looked very different from my old late nights — fewer screens, more textbooks filled
-          with anatomical diagrams I was slowly learning to read in both Chinese and English.
-        </p>
-        <p>
-          When I finally received my Traditional Chinese Medicine Practitioner certification,
-          I had something I didn't have before: a language for what had been happening in my
-          body, and practical tools to address it. More than that, I had results I could feel.
-          The shoulder tension that had been my constant companion for years — measurably,
-          consistently better. Not because I'd found a workaround, but because I'd learned to
-          address the actual source.
-        </p>
+
+  <!-- ── PULL QUOTE ── -->
+  <div class="pull-quote">
+    <p class="pull-quote__text">
+      "What surprised me was the framework — the idea that the body is a network
+      of interconnected systems, and that disruption in one area inevitably surfaces in another."
+    </p>
+    <span class="pull-quote__attr">On discovering TCM</span>
+  </div>
+
+
+  <!-- ── THREE PILLARS ── -->
+  <section class="about-pillars">
+    <div class="about-pillars__header">
+      <span class="section-label">The philosophy</span>
+      <h2 class="about-pillars__title">What MERIDIAN is built on</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar__num">01</div>
+        <div class="pillar__title">Practitioner logic</div>
+        <p class="pillar__body">Every curve follows real anatomy — the orbital bone, the nasolabial groove, the sternocleidomastoid. Shape is function, not decoration.</p>
       </div>
-    </section>
-
-    <!-- Chapter 3 -->
-    <section class="chapter reveal">
-      <span class="chapter__number">Chapter Three</span>
-      <h2 class="chapter__title">What actually worked.</h2>
-      <div class="chapter__body">
-        <p>
-          The tools matter. This is something I had to learn by working with many different
-          implements before I understood what made certain ones genuinely effective and others
-          merely decorative.
-        </p>
-        <p>
-          Copper kept appearing in my research and practice. H65 copper specifically — an alloy
-          with enough hardness to hold a useful edge while retaining the thermal conductivity
-          and natural microbicidal properties that make copper genuinely functional in bodywork.
-          When copper contacts skin at the right pressure and angle, you feel it working in a
-          way that plastic or stainless steel simply don't replicate. There's a warmth to it.
-          A responsiveness.
-        </p>
-        <p>
-          The wood components — black walnut, rosewood, golden silk ebony — aren't aesthetic
-          choices. Each wood has a different density, a different feel in the hand after extended
-          use. Hand-sanding without lacquer or chemical coating matters because you're pressing
-          these tools against skin. What goes on the tool eventually contacts you. I refused to
-          compromise on that.
-        </p>
-        <p>
-          Every piece I selected or helped refine went through months of testing in my own
-          practice before I considered sharing it. The curves had to follow actual anatomy —
-          not a designer's approximation of anatomy, but the real contours of the orbital bone,
-          the nasolabial groove, the sternocleidomastoid. The weight had to make sense for
-          sustained use. I've discarded a lot of beautiful objects because they didn't work
-          as tools.
-        </p>
+      <div class="pillar">
+        <div class="pillar__num">02</div>
+        <div class="pillar__title">Material honesty</div>
+        <p class="pillar__body">H65 copper for its thermal conductivity and natural microbicidal properties. Uncoated hardwoods because what touches the tool touches your skin.</p>
       </div>
-    </section>
-
-    <!-- Chapter 4 -->
-    <section class="chapter reveal">
-      <span class="chapter__number">Chapter Four</span>
-      <h2 class="chapter__title">Not a brand. A practice.</h2>
-      <div class="chapter__body">
-        <p>
-          I didn't set out to start a company. I set out to share something that worked — and
-          found that the most honest way to do that was to put the tools directly in people's
-          hands, with enough context to actually use them.
-        </p>
-        <p>
-          MERIDIAN exists because I kept having the same conversation: colleagues asking what
-          I was using on my face, friends noticing that something had shifted. Everyone wanted
-          the tools, but more importantly, they wanted to understand why the tools worked —
-          the meridian logic behind each motion, the anatomical reasoning beneath each curve.
-        </p>
-        <p>
-          That's what MERIDIAN tries to be. Not a wellness brand selling aesthetics. A
-          practitioner's approach, made accessible. Every product in this collection has
-          a specific anatomical target and a specific TCM rationale. I can explain exactly
-          why each piece is shaped the way it is, and which pathways it's designed to address.
-        </p>
-        <p>
-          The ritual isn't decoration. It's the point.
-        </p>
+      <div class="pillar">
+        <div class="pillar__num">03</div>
+        <div class="pillar__title">Months of testing</div>
+        <p class="pillar__body">Every piece was tested in practice before it was shared. Beautiful objects that didn't work as tools were discarded. Only effective ones remained.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div><!-- /.about-chapters -->
 
-
-  <!-- ══════════════ CREDENTIALS ══════════════ -->
-  <section class="credentials reveal">
-    <span class="credentials__eyebrow">Practitioner Background</span>
-    <ul class="credentials__list">
-      <li>Traditional Chinese Medicine Practitioner Certification</li>
-      <li>M.Sc. Computer Science — former software engineer, 10+ years in tech industry</li>
-      <li>Certified in Gua Sha, Tui Na, and Meridian Acupoint Therapy</li>
-      <li>8+ years of personal practice and self-directed study in TCM</li>
-      <li>3+ years of formal clinical training and supervised practice</li>
+  <!-- ── MATERIALS ── -->
+  <section class="about-materials">
+    <span class="about-materials__eyebrow">What actually worked</span>
+    <h2 class="about-materials__heading">The tools that earned their place</h2>
+    <ul class="materials-list">
+      <li>
+        <span class="mat-label">H65 Copper</span>
+        <span class="mat-desc">Enough hardness to hold a useful edge. Thermal conductivity and natural microbicidal properties that plastic and stainless steel simply don't replicate. When copper contacts skin at the right pressure, you feel it working.</span>
+      </li>
+      <li>
+        <span class="mat-label">Black Walnut</span>
+        <span class="mat-desc">Dense, warm in the hand after extended use. Hand-sanded without lacquer — no chemical coating between the wood and your skin.</span>
+      </li>
+      <li>
+        <span class="mat-label">Rosewood</span>
+        <span class="mat-desc">Naturally oily grain that resists moisture. A different weight from walnut — chosen for specific tools where that balance matters.</span>
+      </li>
+      <li>
+        <span class="mat-label">Golden Silk Ebony</span>
+        <span class="mat-desc">The densest of the three. Used where sustained pressure needs the most stable handle. Not an aesthetic choice — a functional one.</span>
+      </li>
     </ul>
   </section>
 
 
-  <!-- ══════════════ CTA ══════════════ -->
-  <section class="about-cta reveal">
-    <h3 class="about-cta__title">Ready to begin your own practice?</h3>
-    <p class="about-cta__body">
-      Every tool in the collection comes with care instructions and guidance on technique.
-      Start wherever feels right.
-    </p>
-    <a href="products.html" class="btn btn-primary">Start your ritual</a>
+  <!-- ── CREDENTIALS ── -->
+  <section class="credentials">
+    <span class="credentials__eyebrow">Practitioner Background</span>
+    <ul class="credentials__list">
+      <li>Traditional Chinese Medicine Practitioner Certification</li>
+      <li>M.Sc. Computer Science — former software engineer, 10+ years in tech</li>
+      <li>Certified in Gua Sha, Tui Na, and Meridian Acupoint Therapy</li>
+      <li>8+ years of personal practice and self-directed study in TCM</li>
+      <li>3+ years formal clinical training and supervised practice</li>
+    </ul>
   </section>
 
 
-  <!-- ══════════════ FOOTER ══════════════ -->
+  <!-- ── CTA ── -->
+  <section class="about-cta">
+    <h3 class="about-cta__title">Ready to begin your own practice?</h3>
+    <p class="about-cta__body">
+      Every tool in the collection comes with technique guidance rooted in meridian theory.
+      Start wherever feels right.
+    </p>
+    <a href="products.html" class="btn btn-primary">Explore the collection</a>
+  </section>
+
+
   <!-- FOOTER -->
   <footer class="footer-dark" role="contentinfo">
     <div class="footer-inner">
