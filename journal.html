@@ -27,30 +27,107 @@
       --border:  rgba(26,23,21,0.12);
     }
 
-    /* ── Journal Header ── */
+    /* ── Journal Header — magazine masthead ── */
     .journal-hero {
-      background: var(--cream-2);
-      padding: 48px 40px 44px;
-      border-bottom: 1px solid var(--border);
+      background: var(--dark);
+      padding: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .journal-hero-inner {
-      max-width: 900px;
+    .journal-masthead {
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 40px;
     }
-    .journal-hero .section-label { margin-bottom: 20px; }
-    .journal-hero h1 {
+    /* Top strip */
+    .journal-masthead__top {
+      display: flex;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 16px;
+    }
+    .journal-masthead__vol {
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      white-space: nowrap;
+    }
+    .journal-masthead__rule {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .journal-masthead__source {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm);
+      white-space: nowrap;
+    }
+    /* Main title row */
+    .journal-masthead__main {
+      padding: 36px 0 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: end;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .journal-masthead__title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 6vw, 72px);
+      font-size: clamp(52px, 8vw, 100px);
       font-weight: 300;
-      line-height: 1.05;
-      margin-bottom: 18px;
+      line-height: 0.95;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
     }
-    .journal-hero h1 em { font-style: italic; }
-    .journal-hero p {
-      font-size: 15px;
-      color: var(--muted);
+    .journal-masthead__title em {
+      font-style: italic;
+      color: var(--warm);
+    }
+    .journal-masthead__lede {
+      font-size: 14px;
+      color: rgba(255,255,255,0.42);
       line-height: 1.8;
-      max-width: 520px;
+      max-width: 48ch;
+    }
+    .journal-masthead__aside {
+      text-align: right;
+      padding-bottom: 6px;
+    }
+    .journal-masthead__byline {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.8;
+    }
+    /* Topic filter bar */
+    .journal-masthead__topics {
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .journal-masthead__topics::-webkit-scrollbar { display: none; }
+    .journal-topic {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.32);
+      padding: 14px 20px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .journal-topic:first-child { padding-left: 0; }
+    .journal-topic:last-child { border-right: none; }
+    .journal-topic:hover,
+    .journal-topic--active {
+      color: var(--warm);
     }
 
     /* ── Article Grid ── */
@@ -204,7 +281,10 @@
       .journal-grid { grid-template-columns: 1fr; }
       .journal-grid .article-card:first-child { grid-column: span 1; }
       .journal-grid .article-card:first-child .article-title { font-size: 26px; }
-      .journal-hero, .journal-section { padding-left: 20px; padding-right: 20px; }
+      .journal-section { padding-left: 20px; padding-right: 20px; }
+      .journal-masthead { padding: 0 20px; }
+      .journal-masthead__main { grid-template-columns: 1fr; gap: 1rem; }
+      .journal-masthead__aside { text-align: left; }
     }
   </style>
 </head>
@@ -249,12 +329,34 @@
   <div class="site-backdrop" id="navBackdrop"></div>
 
 
-  <!-- JOURNAL HERO -->
+  <!-- JOURNAL HERO — magazine masthead -->
   <section class="journal-hero">
-    <div class="journal-hero-inner">
-      <p class="section-label">From the Practitioner</p>
-      <h1>The <em>Journal</em></h1>
-      <p>TCM insights, gua sha technique, the science of copper, and the rituals worth keeping. Written by a certified practitioner.</p>
+    <div class="journal-masthead">
+      <!-- Top strip: vol + divider + source label -->
+      <div class="journal-masthead__top">
+        <span class="journal-masthead__vol">Vol. I &nbsp;·&nbsp; Est. 2023</span>
+        <span class="journal-masthead__rule"></span>
+        <span class="journal-masthead__source">From the Practitioner</span>
+      </div>
+      <!-- Main title block -->
+      <div class="journal-masthead__main">
+        <div>
+          <h1 class="journal-masthead__title">The <em>Journal</em></h1>
+          <p class="journal-masthead__lede">TCM insights, gua sha technique, the science of copper, and the rituals worth keeping. Written by a certified practitioner.</p>
+        </div>
+        <div class="journal-masthead__aside">
+          <p class="journal-masthead__byline">Written by<br>a certified TCM<br>practitioner</p>
+        </div>
+      </div>
+      <!-- Topic filter pills -->
+      <div class="journal-masthead__topics">
+        <span class="journal-topic journal-topic--active">All</span>
+        <span class="journal-topic">Technique</span>
+        <span class="journal-topic">TCM Science</span>
+        <span class="journal-topic">Ritual</span>
+        <span class="journal-topic">Copper &amp; Materials</span>
+        <span class="journal-topic">Meridian Theory</span>
+      </div>
     </div>
   </section>
 

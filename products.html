@@ -11,27 +11,134 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    /* ---- Products page supplemental styles ---- */
+    /* ---- Products page header ---- */
     .products-page-header {
-      padding-top: 52px;
-      padding-bottom: 40px;
       background-color: var(--color-surface);
       border-bottom: 1px solid var(--color-border);
+      overflow: hidden;
     }
 
-    .products-page-header h1 {
-      font-size: clamp(2.8rem, 6vw, 5rem);
+    .phdr-wrap {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .phdr-art {
+      border-right: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 28px;
+      min-height: 260px;
+      background: radial-gradient(ellipse at center, rgba(184,115,51,0.04) 0%, transparent 70%);
+    }
+
+    .phdr-text {
+      padding: 52px 52px 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phdr-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .phdr-label::after {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 1px;
+      background: rgba(184,115,51,0.3);
+    }
+
+    .phdr-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
       font-weight: 300;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      line-height: 1.05;
+      margin-bottom: 14px;
     }
 
-    .products-page-header .sub {
-      font-family: var(--font-serif);
+    .phdr-title em {
       font-style: italic;
-      font-size: 1.15rem;
+      color: var(--color-text-muted);
+    }
+
+    .phdr-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      max-width: 54ch;
+      margin-bottom: 26px;
+    }
+
+    .phdr-cats {
+      display: flex;
+      gap: 8px;
+    }
+
+    .phdr-cat {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .phdr-cat__count {
+      font-size: 0.58rem;
+      background: rgba(0,0,0,0.06);
+      padding: 1px 6px;
+      border-radius: 100px;
+    }
+
+    .phdr-cat--active,
+    .phdr-cat:hover {
+      border-color: var(--color-copper);
       color: var(--color-copper);
-      letter-spacing: 0.04em;
+      background: rgba(184,115,51,0.05);
+    }
+
+    .phdr-cat--active .phdr-cat__count,
+    .phdr-cat:hover .phdr-cat__count {
+      background: rgba(184,115,51,0.14);
+    }
+
+    .phdr-infobar {
+      border-top: 1px solid var(--color-border);
+      padding: 13px 52px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .phdr-infobar__item {
+      padding-right: 20px;
+    }
+
+    .phdr-infobar__sep {
+      color: rgba(184,115,51,0.5);
+      margin-right: 20px;
     }
 
     .products-section {
@@ -310,10 +417,13 @@
     }
 
     @media (max-width: 768px) {
-      .products-page-header {
-        padding-top: 36px;
-        padding-bottom: 28px;
-      }
+      .phdr-wrap { grid-template-columns: 1fr; }
+      .phdr-art { display: none; }
+      .phdr-text { padding: 40px 24px 28px; }
+      .phdr-infobar { padding: 12px 24px; flex-wrap: wrap; gap: 4px; }
+      .phdr-infobar__sep { display: none; }
+      .phdr-infobar__item::after { content: '·'; margin-left: 8px; color: rgba(184,115,51,0.5); }
+      .phdr-infobar__item:last-child::after { display: none; }
 
       .products-grid {
         grid-template-columns: 1fr;
@@ -371,10 +481,75 @@
 
   <!-- ========== Page Header ========== -->
   <header class="products-page-header">
-    <div class="container">
-      <div class="divider"></div>
-      <h1>The Collection</h1>
-      <p class="sub">Instruments &amp; Botanicals.</p>
+    <div class="phdr-wrap">
+      <!-- Decorative meridian diagram -->
+      <div class="phdr-art">
+        <svg width="148" height="196" viewBox="0 0 148 196" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Corner marks -->
+          <line x1="8" y1="8" x2="22" y2="8" stroke="rgba(184,115,51,0.3)" stroke-width="0.75"/>
+          <line x1="8" y1="8" x2="8" y2="22" stroke="rgba(184,115,51,0.3)" stroke-width="0.75"/>
+          <line x1="140" y1="8" x2="126" y2="8" stroke="rgba(184,115,51,0.3)" stroke-width="0.75"/>
+          <line x1="140" y1="8" x2="140" y2="22" stroke="rgba(184,115,51,0.3)" stroke-width="0.75"/>
+          <line x1="8" y1="188" x2="22" y2="188" stroke="rgba(184,115,51,0.3)" stroke-width="0.75"/>
+          <line x1="8" y1="188" x2="8" y2="174" stroke="rgba(184,115,51,0.3)" stroke-width="0.75"/>
+          <line x1="140" y1="188" x2="126" y2="188" stroke="rgba(184,115,51,0.3)" stroke-width="0.75"/>
+          <line x1="140" y1="188" x2="140" y2="174" stroke="rgba(184,115,51,0.3)" stroke-width="0.75"/>
+          <!-- Head -->
+          <ellipse cx="74" cy="26" rx="16" ry="16" stroke="rgba(184,115,51,0.5)" stroke-width="0.75"/>
+          <!-- Neck -->
+          <line x1="69" y1="41" x2="67" y2="52" stroke="rgba(184,115,51,0.35)" stroke-width="0.75"/>
+          <line x1="79" y1="41" x2="81" y2="52" stroke="rgba(184,115,51,0.35)" stroke-width="0.75"/>
+          <!-- Body sides -->
+          <path d="M67 52 Q60 65 57 95 Q55 125 60 155" stroke="rgba(184,115,51,0.38)" stroke-width="0.75" fill="none"/>
+          <path d="M81 52 Q88 65 91 95 Q93 125 88 155" stroke="rgba(184,115,51,0.38)" stroke-width="0.75" fill="none"/>
+          <!-- Center meridian (Ren channel) -->
+          <line x1="74" y1="42" x2="74" y2="170" stroke="rgba(184,115,51,0.65)" stroke-width="1" stroke-dasharray="3 4"/>
+          <!-- Horizontal meridian bands -->
+          <line x1="60" y1="70" x2="88" y2="70" stroke="rgba(184,115,51,0.22)" stroke-width="0.5"/>
+          <line x1="58" y1="88" x2="90" y2="88" stroke="rgba(184,115,51,0.22)" stroke-width="0.5"/>
+          <line x1="57" y1="108" x2="91" y2="108" stroke="rgba(184,115,51,0.22)" stroke-width="0.5"/>
+          <line x1="58" y1="128" x2="90" y2="128" stroke="rgba(184,115,51,0.22)" stroke-width="0.5"/>
+          <line x1="59" y1="147" x2="89" y2="147" stroke="rgba(184,115,51,0.22)" stroke-width="0.5"/>
+          <!-- Acupoints on center channel -->
+          <circle cx="74" cy="60" r="2.5" fill="none" stroke="rgba(184,115,51,0.7)" stroke-width="0.75"/>
+          <circle cx="74" cy="79" r="2" fill="rgba(184,115,51,0.3)" stroke="rgba(184,115,51,0.6)" stroke-width="0.75"/>
+          <circle cx="74" cy="98" r="2.5" fill="none" stroke="rgba(184,115,51,0.7)" stroke-width="0.75"/>
+          <circle cx="74" cy="118" r="2" fill="rgba(184,115,51,0.3)" stroke="rgba(184,115,51,0.6)" stroke-width="0.75"/>
+          <circle cx="74" cy="138" r="2.5" fill="none" stroke="rgba(184,115,51,0.7)" stroke-width="0.75"/>
+          <!-- Side acupoints -->
+          <circle cx="60" cy="70" r="1.5" fill="rgba(184,115,51,0.3)" stroke="rgba(184,115,51,0.5)" stroke-width="0.75"/>
+          <circle cx="88" cy="70" r="1.5" fill="rgba(184,115,51,0.3)" stroke="rgba(184,115,51,0.5)" stroke-width="0.75"/>
+          <circle cx="58" cy="88" r="1.5" fill="rgba(184,115,51,0.3)" stroke="rgba(184,115,51,0.5)" stroke-width="0.75"/>
+          <circle cx="90" cy="88" r="1.5" fill="rgba(184,115,51,0.3)" stroke="rgba(184,115,51,0.5)" stroke-width="0.75"/>
+          <circle cx="57" cy="108" r="1.5" fill="rgba(184,115,51,0.3)" stroke="rgba(184,115,51,0.5)" stroke-width="0.75"/>
+          <circle cx="91" cy="108" r="1.5" fill="rgba(184,115,51,0.3)" stroke="rgba(184,115,51,0.5)" stroke-width="0.75"/>
+          <!-- Legs -->
+          <path d="M60 155 Q55 170 53 183" stroke="rgba(184,115,51,0.32)" stroke-width="0.75" fill="none"/>
+          <path d="M88 155 Q93 170 95 183" stroke="rgba(184,115,51,0.32)" stroke-width="0.75" fill="none"/>
+          <!-- Label -->
+          <text x="74" y="196" text-anchor="middle" font-size="6" fill="rgba(184,115,51,0.4)" letter-spacing="4" font-family="Jost, sans-serif">MERIDIAN</text>
+        </svg>
+      </div>
+      <!-- Text content -->
+      <div class="phdr-text">
+        <div class="phdr-label">The Collection · MERIDIAN</div>
+        <h1 class="phdr-title">Instruments<br><em>&amp; Botanicals</em></h1>
+        <p class="phdr-desc">Hand-crafted copper and wood gua sha tools alongside botanical blends — each rooted in the classical meridian theory of Chinese medicine.</p>
+        <nav class="phdr-cats">
+          <a href="#instruments" class="phdr-cat phdr-cat--active">Instruments <span class="phdr-cat__count">6</span></a>
+          <a href="#oils" class="phdr-cat">Essential Oils <span class="phdr-cat__count">3</span></a>
+        </nav>
+      </div>
+    </div>
+    <!-- Info bar -->
+    <div class="phdr-infobar">
+      <span class="phdr-infobar__item">6 copper &amp; wood instruments</span>
+      <span class="phdr-infobar__sep">·</span>
+      <span class="phdr-infobar__item">3 botanical oil blends</span>
+      <span class="phdr-infobar__sep">·</span>
+      <span class="phdr-infobar__item">Free shipping over $150</span>
+      <span class="phdr-infobar__sep">·</span>
+      <span class="phdr-infobar__item">Ships in 2–3 business days</span>
     </div>
   </header>
 

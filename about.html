@@ -11,26 +11,137 @@
   <style>
     /* ── About-page styles ── */
 
-    /* Hero */
+    /* Hero — dark editorial two-column */
     .about-hero {
-      padding-top: 52px;
-      padding-bottom: 3rem;
-      text-align: center;
+      background: var(--color-text);
+      border-bottom: none;
+      overflow: hidden;
+      position: relative;
     }
-    .about-hero__title {
-      max-width: 20ch;
-      margin: 0.75rem auto 1.25rem;
+
+    .about-hero__ghost {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-size: clamp(6rem, 14vw, 13rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.025);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .about-hero__inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px var(--spacing-md) 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-hero__eyebrow {
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .about-hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
       font-weight: 300;
       line-height: 1.2;
+      color: #fff;
+      margin: 0 0 1.25rem;
     }
+
     .about-hero__lede {
-      font-size: 0.925rem;
-      color: var(--color-text-muted);
-      max-width: 42ch;
-      margin: 0 auto;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.8;
+      margin-bottom: 1.75rem;
+      max-width: none;
+    }
+
+    .about-hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .about-hero__tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 13px;
+      border: 1px solid rgba(184,115,51,0.35);
+      color: rgba(184,115,51,0.7);
+    }
+
+    .about-hero__right {
+      border-left: 1px solid rgba(255,255,255,0.07);
+      padding-left: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about-hero__philosophy {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
       line-height: 1.7;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .about-hero__philosophy em {
+      color: var(--color-copper);
+      font-style: normal;
+    }
+
+    .about-hero__timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .about-hero__tl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .about-hero__tl-item:first-child {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .about-hero__tl-year {
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      color: var(--color-copper);
+      min-width: 44px;
+      padding-top: 1px;
+    }
+
+    .about-hero__tl-text {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.5;
     }
 
     /* Stats row */
@@ -304,8 +415,10 @@
 
     /* Responsive */
     @media (max-width: 720px) {
+      .about-hero__inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 48px 1.25rem 40px; }
+      .about-hero__right { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 2rem; }
       .about-split { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.25rem; }
-      .about-portrait { aspect-ratio: 4 / 3; } /* landscape crop on mobile */
+      .about-portrait { aspect-ratio: 4 / 3; }
       .about-stats__inner { grid-template-columns: 1fr; }
       .pillars-grid { grid-template-columns: 1fr; }
       .materials-list li { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -358,13 +471,38 @@
 
   <!-- ── HERO ── -->
   <section class="about-hero">
-    <div class="container container--narrow">
-      <span class="section-label">The story behind the practice</span>
-      <h1 class="about-hero__title">Built by a practitioner. For everyone.</h1>
-      <p class="about-hero__lede">
-        A software engineer's health crisis. A TCM certification.
-        A decade of testing tools until only the real ones remained.
-      </p>
+    <div class="about-hero__ghost">Story</div>
+    <div class="about-hero__inner">
+      <!-- Left: brand story -->
+      <div class="about-hero__left">
+        <span class="about-hero__eyebrow">The story behind the practice</span>
+        <h1 class="about-hero__title">Built by a practitioner.<br>For everyone.</h1>
+        <p class="about-hero__lede">A software engineer's health crisis. A TCM certification. A decade of testing tools until only the real ones remained.</p>
+        <div class="about-hero__tags">
+          <span class="about-hero__tag">TCM Certified</span>
+          <span class="about-hero__tag">10+ Yrs Tech</span>
+          <span class="about-hero__tag">3 Yrs Clinical</span>
+          <span class="about-hero__tag">Copper Specialist</span>
+        </div>
+      </div>
+      <!-- Right: philosophy + timeline -->
+      <div class="about-hero__right">
+        <p class="about-hero__philosophy">"The tools you use shape the practice. <em>Only copper conducts</em> the way classical texts describe — and most people have never held a real one."</p>
+        <div class="about-hero__timeline">
+          <div class="about-hero__tl-item">
+            <span class="about-hero__tl-year">2013</span>
+            <span class="about-hero__tl-text">Health crisis. Discovered gua sha through classical TCM texts and meridian theory.</span>
+          </div>
+          <div class="about-hero__tl-item">
+            <span class="about-hero__tl-year">2017</span>
+            <span class="about-hero__tl-text">Began 3-year clinical training in TCM meridian therapy and acupuncture.</span>
+          </div>
+          <div class="about-hero__tl-item">
+            <span class="about-hero__tl-year">2023</span>
+            <span class="about-hero__tl-text">Founded MERIDIAN — tools sourced directly from copper artisans in Yunnan.</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
