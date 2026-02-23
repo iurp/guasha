@@ -205,6 +205,110 @@
       transform: translateX(3px);
     }
 
+    /* ---- Category section header ---- */
+    .category-section-header {
+      padding: 72px 0 40px;
+    }
+
+    .category-section-header .eyebrow {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-copper);
+      font-family: var(--font-sans);
+      margin-bottom: 14px;
+    }
+
+    .category-section-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .category-section-header p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    .category-rule {
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-border);
+      margin: 0;
+      border: none;
+    }
+
+    /* ---- Botanical placeholder for oils ---- */
+    .oil-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0d1a0e 0%, #142018 40%, #1a2a1a 70%, #0a130b 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .oil-placeholder__icon {
+      opacity: 0.5;
+    }
+
+    .oil-placeholder__label {
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: rgba(130, 185, 110, 0.45);
+      text-transform: uppercase;
+    }
+
+    /* ---- Coming soon card variant ---- */
+    .catalog-card__badge--botanical {
+      display: inline-block;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(130, 185, 110, 0.75);
+      border: 1px solid rgba(130, 185, 110, 0.25);
+      padding: 4px 11px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .catalog-card--coming-soon {
+      opacity: 0.72;
+    }
+
+    .catalog-card--coming-soon .catalog-card__price {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .btn-notify {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border-light);
+      padding: 10px 22px;
+      border-radius: 2px;
+      text-decoration: none;
+      cursor: default;
+      opacity: 0.5;
+    }
+
     @media (max-width: 768px) {
       .products-page-header {
         padding-top: 96px;
@@ -217,6 +321,10 @@
 
       .catalog-card__body {
         padding: 20px 20px 24px;
+      }
+
+      .category-section-header {
+        padding: 52px 0 32px;
       }
     }
   </style>
@@ -266,13 +374,23 @@
     <div class="container">
       <div class="divider"></div>
       <h1>The Collection</h1>
-      <p class="sub">Six tools. One practice.</p>
+      <p class="sub">Instruments &amp; Botanicals.</p>
     </div>
   </header>
 
   <!-- ========== Products Grid ========== -->
   <main>
     <section class="products-section">
+
+      <!-- ── Category: Tools / 器具 ── -->
+      <div class="container" id="instruments">
+        <div class="category-section-header">
+          <span class="eyebrow">Instruments — 器具</span>
+          <h2>Copper &amp; Wood Tools</h2>
+          <p>Hand-forged for the meridian. Six forms, one practice.</p>
+        </div>
+      </div>
+      <hr class="category-rule" />
       <div class="container">
         <div class="products-grid reveal-group">
 
@@ -428,6 +546,88 @@
 
         </div><!-- /products-grid -->
       </div>
+
+      <!-- ── Category: Essential Oils / 精油 ── -->
+      <div class="container" id="oils">
+        <div class="category-section-header">
+          <span class="eyebrow">Botanicals — 精油</span>
+          <h2>Essential Oils</h2>
+          <p>Plant intelligence, distilled. Coming soon to the collection.</p>
+        </div>
+      </div>
+      <hr class="category-rule" />
+      <div class="container">
+        <div class="products-grid reveal-group">
+
+          <!-- Oil 01 — Warming Wood Blend -->
+          <article class="catalog-card catalog-card--coming-soon">
+            <div class="catalog-card__image">
+              <div class="oil-placeholder">
+                <svg class="oil-placeholder__icon" width="36" height="52" viewBox="0 0 36 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2h8M18 2v10M10 12h16l4 8v22a4 4 0 01-4 4H10a4 4 0 01-4-4V20l4-8z" stroke="rgba(130,185,110,0.45)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 28h24" stroke="rgba(130,185,110,0.25)" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+                <span class="oil-placeholder__label">Coming Soon</span>
+              </div>
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__badge--botanical">Cedarwood · Cassia · Ginger</span>
+              <h2 class="catalog-card__name">Warming Wood Blend</h2>
+              <p class="catalog-card__tagline">Ignite. Circulate. Restore.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price">Coming Soon</div>
+                <span class="btn-notify">Notify Me</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Oil 02 — White Jade Face Oil -->
+          <article class="catalog-card catalog-card--coming-soon">
+            <div class="catalog-card__image">
+              <div class="oil-placeholder">
+                <svg class="oil-placeholder__icon" width="36" height="52" viewBox="0 0 36 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2h8M18 2v10M10 12h16l4 8v22a4 4 0 01-4 4H10a4 4 0 01-4-4V20l4-8z" stroke="rgba(130,185,110,0.45)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 28h24" stroke="rgba(130,185,110,0.25)" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+                <span class="oil-placeholder__label">Coming Soon</span>
+              </div>
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__badge--botanical">Camellia · Pearl · Chrysanthemum</span>
+              <h2 class="catalog-card__name">White Jade Face Oil</h2>
+              <p class="catalog-card__tagline">Illuminate. Nourish. Renew.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price">Coming Soon</div>
+                <span class="btn-notify">Notify Me</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Oil 03 — Meridian Flow Body Serum -->
+          <article class="catalog-card catalog-card--coming-soon">
+            <div class="catalog-card__image">
+              <div class="oil-placeholder">
+                <svg class="oil-placeholder__icon" width="36" height="52" viewBox="0 0 36 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2h8M18 2v10M10 12h16l4 8v22a4 4 0 01-4 4H10a4 4 0 01-4-4V20l4-8z" stroke="rgba(130,185,110,0.45)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6 28h24" stroke="rgba(130,185,110,0.25)" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+                <span class="oil-placeholder__label">Coming Soon</span>
+              </div>
+            </div>
+            <div class="catalog-card__body">
+              <span class="catalog-card__badge--botanical">Angelica · Camphor · Turmeric</span>
+              <h2 class="catalog-card__name">Meridian Flow Body Serum</h2>
+              <p class="catalog-card__tagline">Flow. Unblock. Revive.</p>
+              <div class="catalog-card__footer">
+                <div class="catalog-card__price">Coming Soon</div>
+                <span class="btn-notify">Notify Me</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /products-grid oils -->
+      </div>
+
     </section>
   </main>
 
@@ -443,10 +643,10 @@
         <div class="footer-col">
           <h4>Shop</h4>
           <ul>
-            <li><a href="products.html">All Tools</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html#instruments">Instruments — 器具</a></li>
+            <li><a href="products.html#oils">Essential Oils — 精油</a></li>
             <li><a href="product/frog-face-lift.html">Frog Face Lift Massager</a></li>
-            <li><a href="product/lotus-pod-eye.html">Lotus Pod Eye Massager</a></li>
-            <li><a href="product/face-neck-sculpting.html">Dual Face &amp; Neck Tool</a></li>
           </ul>
         </div>
         <div class="footer-col">
